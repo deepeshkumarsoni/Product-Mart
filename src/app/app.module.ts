@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PmDemoMaterialModule } from './material-module';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PmDemoMaterialModule } from './material-module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    PmDemoMaterialModule
+    PmDemoMaterialModule,
+    ProductsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
