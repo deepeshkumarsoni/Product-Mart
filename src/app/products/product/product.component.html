@@ -1,1 +1,7 @@
 <h1> Hii...Product Component </h1>
+
+<div *ngFor= "let product of (products | async)">
+    <img src="{{product.imgUrl}}"><br>   
+    {{ product.name }}
+    {{ product.price }}
+</div>
