@@ -1,7 +1,19 @@
-
-<button mat-raised-button color="primary">Primary</button>
+<!-- <button mat-raised-button color="primary">Primary</button>
 <button mat-raised-button color="accent">Accent</button>
 <button mat-raised-button color="warn">Warn</button>
-<button mat-raised-button disabled>Disabled</button>
+<button mat-raised-button disabled>Disabled</button> -->
+<header>
+<mat-toolbar class="mat">Product Mart
+    <mat-toolbar-row>
+        <span>Product List</span>
 
+        <a mat-raised-button routerLink="/Home"
+        routerLinkAcive="active-link">Home</a>
+
+        <a mat-raised-button routerLink="products"
+        routerLinkAcive="active-link">Products</a>
+   
+    </mat-toolbar-row>      
+</mat-toolbar>
+</header>
 <router-outlet></router-outlet>
