@@ -3,12 +3,14 @@
        "imgUrl" : "https://static.toiimg.com/photo/71335454.cms",
        "name" : "Apple Iphone Pro 11",
        "price" : 150000,
+       "series" : "Iphone Series",
        "id" : 1
     },
     {
         "imgUrl" : "https://i.pinimg.com/originals/e7/7d/2d/e77d2d96f01eee002a532958eeef293a.jpg",
         "name" : "Stylish Watch",
         "price" : 25000, 
+        "series" : "Sports Series",
         "id" : 2
      }
 ]
