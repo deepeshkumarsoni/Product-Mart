@@ -6,11 +6,11 @@ import { ProductComponent } from './product/product.component';
 import { ProductService } from './product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PmDemoMaterialModule } from '../material-module';
- 
+
 
 @NgModule({
   declarations: [ProductComponent],
-  imports: [CommonModule, ProductsRoutingModule,HttpClientModule,PmDemoMaterialModule], 
+  imports: [CommonModule, ProductsRoutingModule, HttpClientModule, PmDemoMaterialModule],
   providers : [ProductService]
 })
 export class ProductsModule { }

@@ -4,10 +4,10 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class ProductService {
 
-  constructor(private $http : HttpClient) {}
+  constructor(private $http: HttpClient) {}
 
   getAllProducts(){
-    return this.$http.get('products.json'); 
+    return this.$http.get('products.json');
   }
 
 }
