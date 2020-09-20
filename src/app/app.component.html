@@ -3,19 +3,22 @@
 <button mat-raised-button color="warn">Warn</button>
 <button mat-raised-button disabled>Disabled</button> -->
 <header>
-<mat-toolbar class="mat">Product Mart
+<mat-toolbar class="mat" color='accent'>
     <mat-toolbar-row>
-        <span>Product List</span>
+        <span><h1>Product Mart</h1></span>
 
-        <a mat-raised-button routerLink="/Home"
+        <a mat-stroked-button routerLink="/Home"
         routerLinkActive="active-link">Home</a>
 
-        <a mat-raised-button routerLink="products"
+        <a mat-stroked-button routerLink="products"
         routerLinkActive="active-link">Products</a>
-   
+
+        <a mat-stroked-button routerLink="/Login"
+        routerLinkActive="active-link">Login</a>
+
     </mat-toolbar-row>      
 </mat-toolbar>
 </header>
-<h2> Welcome To Product-Mart </h2>
+<h2 style="margin-left: 13cm;margin-right: 14cm;"> Welcome To Product-Mart </h2>
 
 <router-outlet></router-outlet>

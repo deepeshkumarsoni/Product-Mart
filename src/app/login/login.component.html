@@ -1,1 +1,21 @@
-<p>login works!</p>
+<h1 style="margin-left: 50px;"> Hii...Welcome To Login Component </h1>
+<mat-card class="login">
+    <mat-card-header>
+        <mat-card-title> Login </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input name="email" matInput placeholder="Enter Email Here"
+            type="email" value="" required/>                    
+        </mat-form-field> <br>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input name="password" matInput placeholder="Enter Password Here"
+            type="password" value="" required/>
+        </mat-form-field>       
+    </mat-card-content>
+    <mat-card-actions>
+        <button style="margin-left: 20px;" mat-raised-button color='accent' (click)="login()"> Login </button>
+    </mat-card-actions>
+</mat-card>
