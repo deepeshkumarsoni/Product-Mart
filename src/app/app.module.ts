@@ -9,12 +9,14 @@ import { PmDemoMaterialModule } from './material-module';
 import { ProductsModule } from './products/products.module';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterationComponent } from './registeration/registeration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterationComponent
   ],
   imports: [
     BrowserModule,
