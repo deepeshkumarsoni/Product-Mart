@@ -19,7 +19,7 @@ const routes: Routes = [
     path : 'Login',
     pathMatch : 'full',
     component : LoginComponent
-  },  
+  },
   {
     path : 'products',
     pathMatch : 'full',
