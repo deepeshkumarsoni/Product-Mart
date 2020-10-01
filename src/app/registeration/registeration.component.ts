@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-registeration',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterationComponent implements OnInit {
 
+  user : FormGroup;
   constructor() { }
 
   ngOnInit(): void {
+    this.user = new FormGroup({
+      fullName : new FormControl(''),
+      email : new FormControl(''),
+      password : new FormControl(''),
+    });
   }
-
+  
+  register(){
+    return console.log('You Have Been Successfully Registered');
+  }
 }
