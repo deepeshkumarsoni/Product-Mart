@@ -3,25 +3,56 @@
 <button mat-raised-button color="warn">Warn</button>
 <button mat-raised-button disabled>Disabled</button> -->
 <header>
-<mat-toolbar class="mat" color='accent'>
+  <mat-toolbar class="mat" color="accent">
     <mat-toolbar-row>
-        <span><h1>Product Mart</h1></span>
+      <a class="header" routerLink="/Home"></a>
 
-        <a mat-stroked-button routerLink="/Home"
-        routerLinkActive="active-link">Home</a>
+      <a mat-stroked-button routerLink="/Home" routerLinkActive="active-link"
+        >Home</a
+      >
 
-        <a mat-stroked-button routerLink="products"
-        routerLinkActive="active-link">Products</a>
+      <a mat-stroked-button routerLink="products" routerLinkActive="active-link"
+        >Products</a
+      >
 
-        <a mat-stroked-button routerLink="/Login"
-        routerLinkActive="active-link">Login</a>
+      <a
+        *ngIf="!user"
+        mat-stroked-button
+        routerLink="/Login"
+        routerLinkActive="active-link"
+        >Login</a
+      >
+        <div>
+      <a
+        *ngIf="user"
+        mat-stroked-button
+        routerLink="/Home"
+        [matMenuTriggerFor]="menu"
+      >
+        <mat-icon> circle_account</mat-icon> {{ user.fullName }}
+      </a>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+      </div>
 
-        <a mat-stroked-button routerLink="/register"        
-        routerLinkActive="active-link">Singup</a>
-        
-    </mat-toolbar-row>      
-</mat-toolbar>
+      <!-- <a mat-stroked-button  [matMenuTriggerFor]='menu'>
+                <mat-icon> circle_account </mat-icon> {{user.fullName}}
+            </a>
+            <mat-menu #menu='matMenu'>\
+                <button mat-menu-item (click)='logout()'> Logout </button>
+            </mat-menu>
+     -->
+
+      <a
+        mat-stroked-button
+        routerLink="/register"
+        routerLinkActive="active-link"
+        >Singup</a
+      >
+    </mat-toolbar-row>
+  </mat-toolbar>
 </header>
-<h2 style="margin-left: 13cm;margin-right: 14cm;"> Welcome To Product-Mart </h2>
+<!-- <h2 style="margin-left: 13cm;margin-right: 14cm;"> Welcome To Product-Mart </h2> -->
 
 <router-outlet></router-outlet>

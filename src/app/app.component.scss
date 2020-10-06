@@ -1,14 +1,15 @@
-a{
-    margin-left: 10px;
-   // color:red;
-   // background-color: lightgreen;
+a {
+  margin-left: 30px;
+  // color:red;
+  // background-color: lightgreen;
 }
-
-// .mat{
-//     background-color: darkorange;
-// }
-
-.active-link{
-    background-color: lime;
+.active-link {
+  background-color: lime;
 }
-
+.header {
+  background-image: url("../assets/images/logo.png");
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
