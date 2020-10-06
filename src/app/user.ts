@@ -4,3 +4,8 @@ export interface User{
     password : string;
     repeatPassword? : string;
 }
+
+export interface loggin{
+    userId : string;
+    password : string;
+}
