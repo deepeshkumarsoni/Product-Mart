@@ -15,15 +15,16 @@ export class RegisterationComponent implements OnInit {
     private router: Router
   ) {
     this.userGroup = new FormGroup({
-      fullName: new FormControl('', [Validators.required]),
+      fullName: new FormControl('', [Validators.required,Validators.minLength(2),Validators.maxLength(10)]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(4),
+        Validators.maxLength(10)
       ]),
-      repassword: new FormControl('', [
+      confirmPassword: new FormControl('', [
         Validators.required,
-        this.passwordMatch,
+        this.passwordMatch
       ]),
     });
   }
@@ -31,32 +32,41 @@ export class RegisterationComponent implements OnInit {
   ngOnInit(): void {}
 
   register() {
-    if(!this.userGroup.valid){
-      return
+    if (!this.userGroup.valid) {
+      return alert('Registeration Form Is Invalid.Please Fill Form Carefully.');
     }
     const user = this.userGroup.value;
+    alert('Registeration Done Successfully');
     this.authService
       .register(user)
       .subscribe((s) => this.router.navigate(['Home']));
   }
-  passwordMatch(rePaswordcontrol: FormControl) {
-    const password = rePaswordcontrol.root.get('password');
-    return password && rePaswordcontrol.value !== password.value
+
+  passwordMatch(confirmPassword: FormControl) {
+    const password = confirmPassword.root.get('password');
+    console.log(password);
+    return password && confirmPassword.value !== password.value?
+    { 
+      passwordMatch: true 
+    }: null;
     // 1.check whether password field is not empty.
     // 2.matching password with repassword.
-      ? { passwordMatch: true }
-      : null;
   }
-  get fullName(){
-    return this.userGroup.get('fullName');
+
+  get userControl() {
+    return this.userGroup.controls;
   }
-  get email(){
-    return this.userGroup.get('email');
-  }
-  get password(){
-    return this.userGroup.get('password');
-  }
-  get repassword(){
-    return this.userGroup.get('repassword');
-  }
+
+  // get fullName(){
+  //   return this.userGroup.get('fullName');
+  // }
+  // get email(){
+  //   return this.userGroup.get('email');
+  // }
+  // get password(){
+  //   return this.userGroup.get('password');
+  // }
+  // get confirmPassword(){
+  //   return this.userGroup.get('confirmPassword');
+  // }
 }

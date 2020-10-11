@@ -1,20 +1,22 @@
 <h1 style="margin-left: 320px">Hii...Welcome To Login Component</h1>
-<mat-card [formGroup]='userForm' class="login">
+<mat-card [formGroup]="userForm" class="register-card">
   <mat-card-header>
-    <mat-card-title> Login </mat-card-title>
+    <mat-card-title class="title"><u> LOGIN FORM </u></mat-card-title>
   </mat-card-header>
+  <br />
   <mat-card-content>
-    <mat-form-field class="form-group"> 
-      <mat-label for='email'>Email</mat-label>
+    <mat-form-field class="full-width">
+      <mat-label for="email">Email</mat-label>
       <input
         id="email"
         formControlName="email"
         matInput
         placeholder="Enter Email Here"
-        type="email"        
+        type="email"
         required
-      />      
-    </mat-form-field> <br>
+      />
+    </mat-form-field>
+    <br />
     <span *ngIf="userForm.touched">
       <i
         class="fa fa-check-circle"
@@ -29,8 +31,8 @@
       Email Validation.
     </span>
     <br /><br />
-    <mat-form-field class="form-group">
-      <mat-label for='password'>Password</mat-label>
+    <mat-form-field class="full-width">
+      <mat-label for="password">Password</mat-label>
       <input
         id="password"
         formControlName="password"
@@ -38,8 +40,8 @@
         placeholder="Enter Password Here"
         type="password"
         required
-      />
-    </mat-form-field><br>
+      /> </mat-form-field
+    ><br />
     <span *ngIf="userForm.controls.password.touched">
       <i
         class="fa fa-check-circle"
@@ -56,7 +58,7 @@
   </mat-card-content>
   <mat-card-actions>
     <button
-      style="margin-left: 20px"
+      style="margin-left: 3cm"
       mat-raised-button
       color="accent"
       (click)="login()"
@@ -70,6 +72,6 @@
   </mat-card-actions>
 </mat-card>
 
-<pre>
+<!-- <pre>
   {{userForm.value | json}}
-</pre>
+</pre> -->

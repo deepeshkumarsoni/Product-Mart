@@ -1,11 +1,11 @@
-<h1 style="margin-left: 290px">Hii...Welcome To Registeration Component</h1>
-<mat-card class="login">
+<!-- <h1 style="margin-left: 290px">Hii...Welcome To Registeration Component</h1> -->
+<mat-card [formGroup]="userGroup" class="register-card">
   <mat-card-header>
-    <mat-card-title> Register̥ation Form </mat-card-title>
+    <mat-card-title class="header"><u> REGISTERATION FORM </u></mat-card-title>
   </mat-card-header>
-  <br />
-  <mat-card-content [formGroup]="userGroup">
-    <mat-form-field>
+
+  <mat-card-content >
+    <mat-form-field class="full-width">
       <mat-label>FullName</mat-label>
       <input
         name="fullName"
@@ -13,12 +13,24 @@
         matInput
         placeholder="Enter FullName Here"
         type="text"
-        value=""
         required
-      />
-    </mat-form-field>
-    <br />
-    <mat-form-field>
+      /> </mat-form-field
+    ><br />
+    <span *ngIf="userGroup.touched">
+      <i
+        class="fa fa-check-circle"
+        style="color: green"
+        *ngIf="userGroup.controls.fullName.valid"
+      ></i>
+      <i
+        class="fa fa-times-circle"
+        style="color: red"
+        *ngIf="userGroup.controls.fullName.invalid"
+      ></i>
+      First Name Must Be Require.
+    </span>
+    <br /><br />
+    <mat-form-field class="full-width">
       <mat-label>Email</mat-label>
       <input
         name="email"
@@ -26,15 +38,25 @@
         matInput
         placeholder="Enter Email Here"
         type="email"
-        value=""
         required
-      />
-    </mat-form-field>
-    <mat-error *ngIf="email.invalid && email.errors.email">
-      Invalid Email
-    </mat-error>
-    <br />
-    <mat-form-field>
+      /> </mat-form-field
+    ><br />
+    <span *ngIf="userGroup.controls.email.touched">
+      <i
+        class="fa fa-check-circle"
+        style="color: green"
+        *ngIf="userGroup.controls.email.valid"
+      ></i>
+      <i
+        class="fa fa-times-circle"
+        style="color: red"
+        *ngIf="userGroup.controls.email.invalid"
+      ></i>
+      Email Validation.
+    </span>
+
+    <br /><br />
+    <mat-form-field class="full-width">
       <mat-label>Password</mat-label>
       <input
         name="password"
@@ -42,33 +64,61 @@
         matInput
         placeholder="Enter Password Here"
         type="password"
-        value=""
         required
+      /> </mat-form-field
+    ><br />
+    <span *ngIf="userGroup.controls.password.touched">
+      <i
+        class="fa fa-check-circle"
+        style="color: green"
+        *ngIf="userGroup.controls.password.valid"
+      ></i>
+      <i
+        class="fa fa-times-circle"
+        style="color: red"
+        *ngIf="userGroup.controls.password.invalid"
+      ></i>
+      Password must be of 4 characters.
+    </span>
+    <br /><br />
+
+    <mat-form-field class="full-width">
+      <mat-label>Confirm Password</mat-label>
+      <input
+        name="confirmPassword"
+        formControlName="confirmPassword"
+        matInput
+        placeholder="Enter Confirm Password Here"
+        type="password"
+        required 
       />
-    </mat-form-field>
-    <br />
-    <!-- <mat-error *ngIf="password.invalid && password.error.password">
+    </mat-form-field><br>
+    <span *ngIf="userGroup.controls.confirmPassword.touched">
+      <i
+        class="fa fa-check-circle"
+        style="color: green"
+        *ngIf="userGroup.controls.confirmPassword.valid">
+      </i>  
+      <i
+        class="fa fa-times-circle"
+        style="color: red"
+        *ngIf="userGroup.controls.confirmPassword.invalid && 
+               userGroup.controls.confirmPassword.errors.passwordMatch"
+      ></i>
+      Password Match.
+    </span>
+    <!-- <mat-error
+      *ngIf="
+        userGroup.controls.confirmPassword.invalid &&
+        userGroup.controls.confirmPassword.errors.passwordMatch
+      "
+    >
       Invalid Password
     </mat-error> -->
-    <mat-form-field>
-      <mat-label>Re-Enter Password</mat-label>
-      <input
-        name="repassword"
-        formControlName="repassword"
-        matInput
-        placeholder="Re-Enter Password Here"
-        type="password"
-        value=""
-        required
-      />
-    </mat-form-field>
-    <mat-error *ngIf="repassword.invalid && repassword.errors.passwordMatch">
-      Invalid Password
-    </mat-error>
   </mat-card-content>
   <mat-card-actions>
     <button
-      style="margin-left: 20px"
+      style="margin-left: 3cm"
       mat-raised-button
       color="accent"
       (click)="register()"

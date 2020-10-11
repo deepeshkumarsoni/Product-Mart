@@ -2,10 +2,10 @@ export interface User{
     fullName : string;
     email : string;
     password : string;
-    repeatPassword? : string;
+    confirmPassword? : string;
 }
 
-export interface loggin{
-    userId : string;
+export interface userloggin{
+    email : string;
     password : string;
 }
