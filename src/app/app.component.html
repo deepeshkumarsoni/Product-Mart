@@ -22,24 +22,19 @@
         routerLinkActive="active-link"
         >Login</a
       >
-        <div>
-      <a
-        *ngIf="user"
-        mat-stroked-button
-        routerLink="/Home"
-        [matMenuTriggerFor]="menu"
-      >
-        <mat-icon> circle_account</mat-icon> {{ user.fullName }}
-      </a>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="logout()">Logout</button>
-      </mat-menu>
+      <div *ngIf="user">
+        <a mat-stroked-button [matMenuTriggerFor]="menu">
+          <mat-icon> android</mat-icon> {{ user.fullName }}
+        </a>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
       </div>
 
       <!-- <a mat-stroked-button  [matMenuTriggerFor]='menu'>
                 <mat-icon> circle_account </mat-icon> {{user.fullName}}
             </a>
-            <mat-menu #menu='matMenu'>\
+             <mat-menu #menu='matMenu'>\
                 <button mat-menu-item (click)='logout()'> Logout </button>
             </mat-menu>
      -->
