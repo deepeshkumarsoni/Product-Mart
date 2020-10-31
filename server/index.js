@@ -1,3 +1,14 @@
+const app = require("./configuration/express");
+const config = require("./configuration/config");
+
+// app listen at port 4000
+app.listen(config.port, () => {
+  console.log(`App is running on port no ${config.port} in ${config.env} mode.`);
+});
+
+/**
+ * 
+ 
 // Importing the express function from express module.
 const express = require('express');
 const path = require('path');
@@ -23,3 +34,5 @@ console.log('Serving index.html');
 
 // Intialising our App and Listing on port.
 App.listen(port,() => console.log(`Server is running on Portno.${port}`));
+
+*/

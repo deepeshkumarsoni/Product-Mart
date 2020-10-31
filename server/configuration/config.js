@@ -1,20 +1,6 @@
-require('dotenv').config();
+require("dotenv").config();
 const envVars = process.env;
-module.exports ={
-    env : envVars.NODE_ENV,
-    port : envVars.PORT 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+module.exports = {
+  port: envVars.PORT,
+  env: envVars.NODE_ENV,  
+};
