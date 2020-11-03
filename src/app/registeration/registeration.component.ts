@@ -39,7 +39,10 @@ export class RegisterationComponent implements OnInit {
     alert('Registeration Done Successfully');
     this.authService
       .register(user)
-      .subscribe((s) => this.router.navigate(['Home']));
+      .subscribe((savedUser) => {
+        console.log("User Saved in DB Successfully.",savedUser);
+        this.router.navigate(['Home'])
+      });
   }
 
   passwordMatch(confirmPassword: FormControl) {

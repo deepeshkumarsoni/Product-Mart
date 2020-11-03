@@ -31,7 +31,7 @@ app.use(helmet());
 // Allow CORS
 app.use(cors());
 
-// API Router localhost:4000/api
+// API Router localhost:4050/api
 app.use("/api/", routes);
 
 // Serve the index.html

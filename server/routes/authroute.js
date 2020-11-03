@@ -5,7 +5,7 @@ const asyncHandler = require('express-async-handler');
 // Calling Router() from Express Module
 const router = express.Router();
 
-// Calling Asyn Function  (localhost:4000/api/auth/register)
+// Calling Asyn Function  (localhost:4050/api/auth/register)
 router.post('/register',asyncHandler(insert));
 
 async function insert(req,res,next){

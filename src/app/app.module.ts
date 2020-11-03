@@ -10,6 +10,8 @@ import { ProductsModule } from './products/products.module';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterationComponent } from './registeration/registeration.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { RegisterationComponent } from './registeration/registeration.component'
     FormsModule,
     ReactiveFormsModule,
     PmDemoMaterialModule,
-    ProductsModule
+    ProductsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
