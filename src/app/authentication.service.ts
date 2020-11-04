@@ -38,7 +38,7 @@ export class AuthenticationService {
       // catchError is rxjs operator used for catching an error.
       catchError(error => {
         console.log('Server error occured',error);
-        // throwError is an rxjs observable which return an observable.
+        // throwError is an rxjs operator which return an observable.
          return throwError('Registeration failed please contact to admin');
       })
     );
