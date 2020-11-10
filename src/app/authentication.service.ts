@@ -16,7 +16,25 @@ export class AuthenticationService {
   login(email: string, password: string) {
     const loginCredential = { email, password };
     console.log('Login Credential', loginCredential);
-    return of(loginCredential); // Using Observable
+    return this.
+    httpClient.post<User>(
+      `${this.apiUrl}login`, loginCredential)
+      .pipe(
+        switchMap(savedUser => {
+          this.setUser(savedUser);
+          console.log('User Found Successfully');
+          return of(savedUser);
+        }),
+        catchError(error => {
+          console.log(`Your loggin detais could not be verified.
+          Please try again.`,error);
+          return throwError(
+            `Your loggin detais could not be verified.
+          Please try again.` )
+        })
+        
+      );
+    // return of(loginCredential); // Using Observable
   }
   logout() {
     this.setUser(null);
@@ -27,19 +45,16 @@ export class AuthenticationService {
   }
   register(user: any) {
     //make api call to save user in database
-    return this.
-    httpClient.
-    post(`${this.apiUrl}register`, user).pipe
-    (
-      switchMap(savedUser => {
+    return this.httpClient.post(`${this.apiUrl}register`, user).pipe(
+      switchMap((savedUser) => {
         this.setUser(savedUser);
         return of(savedUser);
       }),
       // catchError is rxjs operator used for catching an error.
-      catchError(error => {
-        console.log('Server error occured',error);
+      catchError((error) => {
+        console.log('Server error occured', error);
         // throwError is an rxjs operator which return an observable.
-         return throwError('Registeration failed please contact to admin');
+        return throwError('Registeration failed please contact to admin');
       })
     );
 

@@ -2,6 +2,7 @@
 
 const bcrypt = require('bcrypt');
 const User = require('../models/user.model');
+//const { delete } = require('../routes/authroute');
 
 async function insert(user){
 // make a mogoose db call to save user ib db
@@ -14,6 +15,25 @@ async function insert(user){
     // return user
 }
 
+async function getUserByEmailIDAndPassword(email,password){
+    let user = await User.findOne({email});
+    
+    if(isUserValid(user, password, hashedPassword)){
+        user = user.toObject();
+        delete user.hashedPassword;
+        return user;
+    } 
+    else{
+        return null;
+    }
+}
+
+async function isUserValid(user, password, hashedPassword){
+    return user && bcrypt.compareSync(password,hashedPassword);
+}
+
 module.exports = { 
-    insert 
+    insert,
+    getUserByEmailIDAndPassword
+     
 };

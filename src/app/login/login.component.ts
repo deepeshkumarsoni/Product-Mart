@@ -10,6 +10,7 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class LoginComponent implements OnInit {
   userForm: FormGroup;
+  error: string;
 
   constructor(
     private router: Router,
@@ -32,13 +33,15 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.error = '';
     if (this.userForm.valid) {
       this.authService
         .login(
           this.userForm.get('email').value,
           this.userForm.get('password').value
         )
-        .subscribe((s) => console.log(s));
+        .subscribe((s) => console.log(s), 
+        e => this.error = e );
       alert('User Loggin Successfully');
       this.userForm.reset();
       this.router.navigate(['Home']);
