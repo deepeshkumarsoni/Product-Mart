@@ -6,16 +6,11 @@
     {{ product.price }}
 </div> -->
 
-<mat-card class="example-card" *ngFor= "let product of (products|async) ">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image">
-        <img mat-card-image src="{{product.imgUrl}}" alt="{{product.name}}"> 
-      </div>
-      <mat-card-title>{{ product.name }}</mat-card-title>
-      <mat-card-subtitle>{{product.series}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="{{product.imgUrl}}" alt="{{product.name}}">
-    <mat-card-content>
+<mat-grid-list cols='3' rowHeight='300px'>
+  <mat-grid-tile class="example-card" *ngFor= "let product of (products|async) ">
+    <mat-card>
+      <img mat-card-image src="{{product.imgUrl}}" alt="{{product.name}}">
+      <mat-card-content>
       <p>
         {{product.name}} : Rs.{{product.price}}
       </p>
@@ -25,4 +20,6 @@
       <button mat-button>SHARE</button>
     </mat-card-actions>
   </mat-card>
-  
+  </mat-grid-tile>
+</mat-grid-list>
+

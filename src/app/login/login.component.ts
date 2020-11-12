@@ -32,19 +32,19 @@ export class LoginComponent implements OnInit {
     return this.userForm.controls;
   }
 
-  login() {
-    this.error = '';
+  login() {    
     if (this.userForm.valid) {
+      this.error = '';
       this.authService
         .login(
           this.userForm.get('email').value,
           this.userForm.get('password').value
-        )
-        .subscribe((s) => console.log(s), 
-        e => this.error = e );
-      alert('User Loggin Successfully');
+        ) 
+        .subscribe(
+          (s) => this.router.navigate(['Home']),
+          e => (this.error = e)
+        );
       this.userForm.reset();
-      this.router.navigate(['Home']);
     } else {
       alert('Login Form Invalid');
     }

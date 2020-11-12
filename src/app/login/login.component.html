@@ -55,6 +55,7 @@
       ></i>
       Password Required Minimum 4 Characters .
     </span>
+    <mat-error *ngIf="userForm.controls.error">{{userForm.controls.error}}</mat-error>
   </mat-card-content>
   <mat-card-actions>
     <button

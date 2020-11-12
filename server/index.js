@@ -1,13 +1,25 @@
+
 const app = require("./configuration/express");
 const config = require("./configuration/config");
 
 // Intialize the MongoDB.
-require('./configuration/mongoose');
+
+require("./configuration/mongoose");
 
 // app listen at port 4000
+
 app.listen(config.port, () => {
-  console.log(`App is running on port no ${config.port} in ${config.env} mode.`);
+  console.log(
+    `App is running on port no ${config.port} in ${config.env} mode.`
+  );
 });
+
+
+
+
+
+
+
 
 /**
  * 

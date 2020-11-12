@@ -20,10 +20,10 @@ export class AuthenticationService {
     httpClient.post<User>(
       `${this.apiUrl}login`, loginCredential)
       .pipe(
-        switchMap(savedUser => {
-          this.setUser(savedUser);
-          console.log('User Found Successfully');
-          return of(savedUser);
+        switchMap(foundUser => {
+          this.setUser(foundUser);
+          console.log('User Found Successfully',foundUser);
+          return of(foundUser);
         }),
         catchError(error => {
           console.log(`Your loggin detais could not be verified.

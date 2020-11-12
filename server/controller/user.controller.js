@@ -17,8 +17,7 @@ async function insert(user){
 
 async function getUserByEmailIDAndPassword(email,password){
     let user = await User.findOne({email});
-    
-    if(isUserValid(user, password, hashedPassword)){
+    if(isUserValid(user, password, user.hashedPassword)){
         user = user.toObject();
         delete user.hashedPassword;
         return user;
@@ -27,8 +26,8 @@ async function getUserByEmailIDAndPassword(email,password){
         return null;
     }
 }
-
-async function isUserValid(user, password, hashedPassword){
+function isUserValid(user, password, hashedPassword){
+    // console.log(user, password, hashedPassword);
     return user && bcrypt.compareSync(password,hashedPassword);
 }
 
