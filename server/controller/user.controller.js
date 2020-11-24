@@ -22,10 +22,23 @@ async function getUserByEmailIDAndPassword(email,password){
         delete user.hashedPassword;
         return user;
     } 
+
     else{
         return null;
     }
 }
+
+async function getUserById(id){
+    let user = await User.findById(id);
+    if(user){
+        user = user.toObject();
+        delete user.hashedPassword;
+        return user;
+    }else{
+        return null;
+    }
+}
+
 function isUserValid(user, password, hashedPassword){
     // console.log(user, password, hashedPassword);
     return user && bcrypt.compareSync(password,hashedPassword);
@@ -33,6 +46,6 @@ function isUserValid(user, password, hashedPassword){
 
 module.exports = { 
     insert,
-    getUserByEmailIDAndPassword
-     
+    getUserByEmailIDAndPassword,
+    getUserById     
 };

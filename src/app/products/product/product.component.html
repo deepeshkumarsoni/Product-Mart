@@ -6,7 +6,7 @@
     {{ product.price }}
 </div> -->
 
-<mat-grid-list cols='3' rowHeight='300px'>
+<mat-grid-list cols='3' rowHeight='500px'>
   <mat-grid-tile class="example-card" *ngFor= "let product of (products|async) ">
     <mat-card>
       <img mat-card-image src="{{product.imgUrl}}" alt="{{product.name}}">

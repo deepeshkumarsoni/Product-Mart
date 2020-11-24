@@ -26,4 +26,4 @@ async function getUserByEmailIDAndPassword(req,res,next){
 }
 
 // Exporting the module
-module.exports = router;
+module.exports = router;`   `

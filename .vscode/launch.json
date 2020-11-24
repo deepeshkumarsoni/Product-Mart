@@ -1,21 +1,37 @@
 {
+     // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": [  
+    "configurations": [
         {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Client Debug",
-            "webRoot": "${workspaceFolder}",
-            "preLaunchTask": "npm: serve"
-        },      
-        {   
             "type": "node",
             "request": "launch",
             "name": "Server Debug",
-            "port": 9229,
-            "cwd": "${workspaceFolder}",
-            "runtimeExecutable": "npm",
-            "runtimeArgs": ["run-script","debug"]            
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+           "port": 9229,
+           "cwd":"${workspaceFolder}",
+           "runtimeExecutable": "npm",
+           "runtimeArgs": [
+               "run-script",
+               "server:debug"
+           ]
+        },
+        {
+          "name": "Launch Angular",
+          "type": "chrome",
+          "request": "launch",
+          "preLaunchTask": "npm: client",
+          "url": "http://localhost:4230/",
+          "webRoot": "${workspaceFolder}"
         }
+    ],
+    "compounds": [
+      {
+        "name": "Server Client Both",
+        "configurations": ["Server Debug", "Launch Angular"]
+      }
     ]
 }
