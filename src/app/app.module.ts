@@ -10,7 +10,8 @@ import { ProductsModule } from './products/products.module';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterationComponent } from './registeration/registeration.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthHeaderInterceptorService } from 'src/app/interceptor/auth-header-interceptor.service';
 
 
 @NgModule({
@@ -30,7 +31,13 @@ import { HttpClientModule } from '@angular/common/http';
     ProductsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHeaderInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -88,9 +88,8 @@ export class AuthenticationService {
           Please try again.`,error);
           return throwError(
             `Your loggin detais could not be verified.
-          Please try again.` )
-        })
-        
+          Please try again.` );
+        })        
       );
   }
   
