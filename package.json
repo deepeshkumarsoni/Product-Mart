@@ -15,7 +15,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "server:debug": "node --nolazy --inspect-brk=9050 server"
+    "server:debug": "node --nolazy --inspect-brk=9229 server"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +24,7 @@
     "@angular/common": "~9.1.6",
     "@angular/compiler": "~9.1.6",
     "@angular/core": "~9.1.6",
+    "@angular/flex-layout": "^11.0.0-beta.33",
     "@angular/forms": "~9.1.6",
     "@angular/material": "^9.2.4",
     "@angular/platform-browser": "~9.1.6",

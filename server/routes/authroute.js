@@ -1,4 +1,5 @@
 const express = require('express');
+
 const userController = require('../controller/user.controller');
 const asyncHandler = require('express-async-handler');
 const authController = require('../controller/authControler');
@@ -42,6 +43,4 @@ function login(){
 }
 
 // Exporting the module
-module.exports = {
-    router,
-};
+module.exports = router;

@@ -6,7 +6,7 @@ const config = require("./configuration/config");
 
 require("./configuration/mongoose");
 
-// app listen at port 4000
+// app listen at port 
 
 app.listen(config.port, () => {
   console.log(

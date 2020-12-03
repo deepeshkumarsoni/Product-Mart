@@ -23,7 +23,7 @@ const localStrategy = new LocalStrategy(
 const jwtLogin = new JwtStrategy(
     {
         jwtFromRequest : ExtractJWT.fromAuthHeaderAsBearerToken,
-        secretOrKey : jwtSecret
+        secretOrKey : config.jwtSecret
     },
     async (payload,done)=> {
         const user = await userController.getUserById(payload._id);

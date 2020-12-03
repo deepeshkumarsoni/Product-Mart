@@ -34,9 +34,10 @@ app.use(cors());
 
 // Authenticate Jwt Using Password
 app.use(passport.initialize());
+app.use(passport.authenticate('jwt', options));
 
 // API Router localhost:4050/api
-app.use("/api/", routes);
+app.use('/api/', routes);
 
 // Serve the index.html
 app.get("*", (req, res) => res.sendFile(path.join(disDir, "index.html")));
