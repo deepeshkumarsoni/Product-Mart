@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { EMPTY, of, Subject, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { TokenStorageService } from './token-storage.service';
-import { User } from '../user';
+import { User } from '@core/user';
 
 interface UserDto{
   user : string;
