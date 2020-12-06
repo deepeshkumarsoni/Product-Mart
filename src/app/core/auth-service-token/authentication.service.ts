@@ -90,7 +90,7 @@ export class AuthenticationService {
     if (!token) {
       return EMPTY;
     }
-    this.httpClient.get<User>(`${this.apiUrl}findme`).pipe(
+    return this.httpClient.get<User>(`${this.apiUrl}findme`).pipe(
       switchMap((foundUser) => {
         this.setUser(foundUser);
         console.log('User Found Successfully', foundUser);
