@@ -6,7 +6,7 @@ import { RegisterationComponent } from './registeration/registeration.component'
 
 const routes: Routes = [
   {
-    path : 'login',
+    path : '',
     pathMatch : 'full',
     component : LoginComponent
   },

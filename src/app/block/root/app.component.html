@@ -5,11 +5,7 @@
 <header>
   <mat-toolbar class="mat" color="accent">
     <mat-toolbar-row>
-      <a class="header" routerLink="/Home"></a>
-
-      <a mat-stroked-button routerLink="/Home" routerLinkActive="active-link"
-        >Home</a
-      >
+      <a class="header" routerLink="/"></a>
 
       <a mat-stroked-button routerLink="products" routerLinkActive="active-link"
         >Products</a
@@ -18,10 +14,11 @@
       <a
         *ngIf="!user"
         mat-stroked-button
-        routerLink="/auth/login"
+        routerLink="/auth"
         routerLinkActive="active-link"
         >Login</a
       >
+
       <div *ngIf="user">
         <a mat-stroked-button [matMenuTriggerFor]="menu">
           <mat-icon> android</mat-icon> {{ user.fullName }}
@@ -31,23 +28,17 @@
         </mat-menu>
       </div>
 
-      <!-- <a mat-stroked-button  [matMenuTriggerFor]='menu'>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</header>
+<router-outlet></router-outlet>
+
+<!-- <h2 style="margin-left: 13cm;margin-right: 14cm;"> Welcome To Product-Mart </h2> -->
+
+<!-- <a mat-stroked-button  [matMenuTriggerFor]='menu'>
                 <mat-icon> circle_account </mat-icon> {{user.fullName}}
             </a>
              <mat-menu #menu='matMenu'>\
                 <button mat-menu-item (click)='logout()'> Logout </button>
             </mat-menu>
      -->
-
-      <a
-        mat-stroked-button
-        routerLink="/auth/register"
-        routerLinkActive="active-link"
-        >Singup</a
-      >
-    </mat-toolbar-row>
-  </mat-toolbar>
-</header>
-<!-- <h2 style="margin-left: 13cm;margin-right: 14cm;"> Welcome To Product-Mart </h2> -->
-
-<router-outlet></router-outlet>
