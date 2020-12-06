@@ -10,11 +10,12 @@ const routes: Routes = [
   {
     path: 'products',
     pathMatch: 'full',
-    loadChildren: './products/products.module#ProductsModule',
+    loadChildren: () => import('./products/products.module').then((m) => m.ProductsModule),
   },
   {
     path: 'auth',
-    loadChildren: 'app/auth/auth.module#AuthModule',
+    pathMatch: 'full',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
 ];
 

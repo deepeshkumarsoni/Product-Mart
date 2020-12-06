@@ -9,6 +9,7 @@
     "server": "nodemon server",
     "client": "ng serve --port 4230 -o",
     "build": "ng build",
+    "stop":"taskkill /f /im node.exe",
     "build:watch": "ng build --watch",
     "build:prod": "npm run build -- --prod",
     "postinstall": "npm run build -- --prod --aot",
