@@ -24,31 +24,19 @@ router.get('/deepesh',function(){
 async function insert(req,res,next){
     const user = req.body;
     console.log('Registering User',user);
-    const savedUser = await userController.insert(user);
+    req.user = await userController.insert(user);
    // res.json(savedUser);
-   req.user = savedUser;
    next();
 }
 
-async function getUserByEmailIDAndPassword(req,res,next){
-    const user = req.body;
-    console.log('Searching User In Database',user);
-    const savedUser = await userController.getUserByEmailIDAndPassword(
-        user.email, user.password
-    );
-   // res.json(savedUser);
-    req.user = savedUser;
-    next();
-}
-
-function login(){
+function login(req,res){
     const user = req.user;
     const token = authController.generateToken(user);
     res.json({
         user,
         token
     });
-}
+}    
 
 // Exporting the module
 module.exports = router;

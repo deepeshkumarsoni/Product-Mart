@@ -8,7 +8,8 @@ const userController = require('../controller/user.controller');
 
 const localStrategy = new LocalStrategy(
   { 
-    userField : 'email'
+    usernameField : 'email',
+    passwordField : 'password'
   },
     async (email,password,done) => {
       const user = await userController.getUserByEmailIDAndPassword(email,password);
