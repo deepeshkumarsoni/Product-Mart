@@ -6,13 +6,11 @@ import { RegisterationComponent } from './registeration/registeration.component'
 
 const routes: Routes = [
   {
-    path : '',
-    pathMatch : 'full',
+    path : 'login',   
     component : LoginComponent
   },
   {
-    path : 'registeration',
-    pathMatch : 'full',
+    path : 'registeration',    
     component : RegisterationComponent
   }  
 ];

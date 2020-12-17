@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
           this.userForm.get('password').value
         ) 
         .subscribe(
-          (s) => this.router.navigate(['Home']),
+          (s) => this.router.navigate(['/products']),
           e => (this.error = e)
         );
       this.userForm.reset();

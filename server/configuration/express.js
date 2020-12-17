@@ -7,6 +7,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 const routes = require("../routes");
 const passport = require("../middleware/passport");
+const HttpError = require("http-errors");
 
 // Get the app
 const app = express();
@@ -40,6 +41,19 @@ app.use('/api/', routes);
 
 // Serve the index.html
 app.get("*", (req, res) => res.sendFile(path.join(disDir, "index.html")));
+
+// Catch the 404 error and forward to error handler.
+app.use((req,res,next) => {
+  const error = new HttpError(404);
+  return next(error);
+});
+
+// Error Handler, Stackrace.
+app.use((err,req,res,next) => {
+  res.status(err.status || 500).json({
+    message : err.message
+  });
+});
 
 // Exporting the module
 module.exports = app;

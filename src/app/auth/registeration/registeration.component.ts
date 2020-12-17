@@ -41,7 +41,7 @@ export class RegisterationComponent implements OnInit {
       .register(user)
       .subscribe((savedUser) => {
         console.log("User Saved in DB Successfully.",savedUser);
-        this.router.navigate(['Home'])
+        this.router.navigate(['products'])
       });
   }
 

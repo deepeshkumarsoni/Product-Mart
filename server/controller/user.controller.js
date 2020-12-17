@@ -12,7 +12,7 @@ async function insert(user){
     return await new User(user).save();
 
     // users.push(user);
-    // return user
+   // return user
 }
 
 async function getUserByEmailIDAndPassword(email,password){
@@ -22,7 +22,6 @@ async function getUserByEmailIDAndPassword(email,password){
         delete user.hashedPassword;
         return user;
     } 
-
     else{
         return null;
     }

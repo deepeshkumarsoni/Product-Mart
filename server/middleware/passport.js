@@ -13,13 +13,13 @@ const localStrategy = new LocalStrategy(
   },
     async (email,password,done) => {
       const user = await userController.getUserByEmailIDAndPassword(email,password);
-      return user? 
-      done(null,user) 
-      : done(null,false,{
-          error: "Your Login Details Are Not Valid.Please Try Again."
-        });
+      return user      
+        ? done(null,user) 
+        : done(null,false,{
+            error: "Your Login Details Are Not Valid.Please Try Again."
+          });
     }
-);
+  );
 
 const jwtLogin = new JwtStrategy(
     {
@@ -32,8 +32,8 @@ const jwtLogin = new JwtStrategy(
         done(null,user)
         :done(null,false,{
             error: "Your Login Details Are Not Valid.Please Try Again."
-        });
+          });
     }
-);
+  );
 
 module.exports = passport.use(localStrategy).use(jwtLogin);

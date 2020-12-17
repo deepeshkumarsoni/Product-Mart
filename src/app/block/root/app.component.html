@@ -14,7 +14,7 @@
       <a
         *ngIf="!user"
         mat-stroked-button
-        routerLink="/auth"
+        [routerLink]="['/auth/login']"
         routerLinkActive="active-link"
         >Login</a
       >
@@ -31,6 +31,9 @@
     </mat-toolbar-row>
   </mat-toolbar>
 </header>
+
+<h1> Hiii...Welcome To Product Mart</h1>
+
 <router-outlet></router-outlet>
 
 <!-- <h2 style="margin-left: 13cm;margin-right: 14cm;"> Welcome To Product-Mart </h2> -->
