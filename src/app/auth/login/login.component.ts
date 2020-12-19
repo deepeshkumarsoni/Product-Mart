@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '@core/index';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent implements OnInit {
   userForm: FormGroup;
-  error: string;
+  error: BehaviorSubject<string>;
 
   constructor(
     private router: Router,
@@ -26,15 +28,17 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.error = new BehaviorSubject("");
+  }
 
   get userControl() {
     return this.userForm.controls;
   }
 
   login() {    
-    if (this.userForm.valid) {
-      this.error = '';
+    //this.setError("");
+    if (this.userForm.valid) {     
       this.authService
         .login(
           this.userForm.get('email').value,
@@ -42,12 +46,16 @@ export class LoginComponent implements OnInit {
         ) 
         .subscribe(
           (s) => this.router.navigate(['/products']),
-          e => (this.error = e)
+          (e) => (this.setError = e)
         );
       this.userForm.reset();
     } else {
       alert('Login Form Invalid');
-    }
+    }    
+  }
+
+  private setError(msg: any) {
+    return this.error.next(msg);
   }
 }
 

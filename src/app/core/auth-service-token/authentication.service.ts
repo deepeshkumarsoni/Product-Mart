@@ -4,6 +4,7 @@ import { EMPTY, of, Subject, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { TokenStorageService } from './token-storage.service';
 import { User } from '@core/user';
+import { LogService } from '@core/log.service';
 
 interface UserDto{
   user : string;
@@ -19,7 +20,8 @@ export class AuthenticationService {
 
   constructor(
     private httpClient: HttpClient,
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private logService: LogService
   ) {}
 
   login(email: string, password: string) {
@@ -34,15 +36,10 @@ export class AuthenticationService {
           console.log('User Found Successfully', user);
           return of(user);
         }),
-        catchError((error) => {
-          console.log(
-            `Your loggin detais could not be verified.
-          Please try again.`,
-            error
-          );
+        catchError((e) => {
+          this.logService.log(`Server Error Occured : ${e.error.message}`,e);
           return throwError(
-            `Your loggin detais could not be verified.
-          Please try again.`
+            `Your loggin detais could not be verified.Please try again.`
           );
         })
       );

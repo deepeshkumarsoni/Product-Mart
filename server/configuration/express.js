@@ -48,11 +48,12 @@ app.use((req,res,next) => {
   return next(error);
 });
 
-// Error Handler, Stackrace.
+// Error Handler, Stack trace.
 app.use((err,req,res,next) => {
   res.status(err.status || 500).json({
     message : err.message
   });
+  next(err);
 });
 
 // Exporting the module
