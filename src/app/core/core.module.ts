@@ -16,7 +16,7 @@ import { SharedModule } from '../shared/shared.module';
       useClass: AuthHeaderInterceptorService,
       multi: true,
     },
-  ],
+  ]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

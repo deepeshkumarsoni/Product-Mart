@@ -7,7 +7,7 @@ import { User } from '@core/user';
 import { LogService } from '@core/log.service';
 
 interface UserDto{
-  user : string;
+  user : User;
   token : string;
 }
 
@@ -37,7 +37,7 @@ export class AuthenticationService {
           return of(user);
         }),
         catchError((e) => {
-          this.logService.log(`Server Error Occured : ${e.error.message}`,e);
+          this.logService.log(`Server Error Occured : ${e.error}`,e);
           return throwError(
             `Your loggin detais could not be verified.Please try again.`
           );
@@ -87,11 +87,11 @@ export class AuthenticationService {
     if (!token) {
       return EMPTY;
     }
-    return this.httpClient.get<User>(`${this.apiUrl}findme`).pipe(
-      switchMap((foundUser) => {
-        this.setUser(foundUser);
-        console.log('User Found Successfully', foundUser);
-        return of(foundUser);
+    return this.httpClient.get<any>(`${this.apiUrl}findme`).pipe(
+      switchMap((user) => {
+        this.setUser(user);
+        console.log('User Found Successfully', user);
+        return of(user);
       }),
       catchError((error) => {
         console.log(

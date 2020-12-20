@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { EMPTY } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,9 @@ export class TokenStorageService {
 
   setToken(token:string){
     if(!token){
-      return this.removeToken();
+      return ;
     }    
+    this.removeToken();
     window.localStorage.setItem(this.TOKEN_KEY,token);
   }
 
