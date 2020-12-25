@@ -7,7 +7,10 @@
     <mat-toolbar-row>
       <a class="header" routerLink="/"></a>
 
-      <a mat-stroked-button routerLink="/products" routerLinkActive="active-link"
+      <a
+        mat-stroked-button
+        routerLink="/products"
+        routerLinkActive="active-link"
         >Products</a
       >
 
@@ -27,12 +30,11 @@
           <button mat-menu-item (click)="logout()">Logout</button>
         </mat-menu>
       </div>
-
     </mat-toolbar-row>
   </mat-toolbar>
 </header>
 
-<h1> Hiii...Welcome To Product Mart</h1>
+<h1>Hiii...Welcome To Product Mart</h1>
 
 <router-outlet></router-outlet>
 

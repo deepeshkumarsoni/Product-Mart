@@ -6,21 +6,20 @@ import { RouterModule } from '@angular/router';
 import { PmDemoMaterialModule } from './material-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [],
-  imports: [ 
+  imports: [
     CommonModule,
     SharedRoutingModule,
     RouterModule,
-    PmDemoMaterialModule    
+    PmDemoMaterialModule,
   ],
-  exports:[
+  exports: [
     PmDemoMaterialModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    FlexLayoutModule
-  ]
+    FlexLayoutModule,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

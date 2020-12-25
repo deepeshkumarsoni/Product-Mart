@@ -7,10 +7,14 @@ import { ProductService } from '../core/product-services/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PmDemoMaterialModule } from '../shared/material-module';
 
-
 @NgModule({
   declarations: [ProductComponent],
-  imports: [CommonModule, ProductsRoutingModule, HttpClientModule, PmDemoMaterialModule],
-  providers : [ProductService]
+  imports: [
+    CommonModule,
+    ProductsRoutingModule,
+    HttpClientModule,
+    PmDemoMaterialModule,
+  ],
+  providers: [ProductService],
 })
-export class ProductsModule { }
+export class ProductsModule {}

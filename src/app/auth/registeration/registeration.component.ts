@@ -15,16 +15,20 @@ export class RegisterationComponent implements OnInit {
     private router: Router
   ) {
     this.userGroup = new FormGroup({
-      fullName: new FormControl('', [Validators.required,Validators.minLength(2),Validators.maxLength(10)]),
+      fullName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(10),
+      ]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(4),
-        Validators.maxLength(10)
+        Validators.maxLength(10),
       ]),
       confirmPassword: new FormControl('', [
         Validators.required,
-        this.passwordMatch
+        this.passwordMatch,
       ]),
     });
   }
@@ -37,21 +41,20 @@ export class RegisterationComponent implements OnInit {
     }
     const user = this.userGroup.value;
     alert('Registeration Done Successfully');
-    this.authService
-      .register(user)
-      .subscribe((savedUser) => {
-        console.log("User Saved in DB Successfully.",savedUser);
-        this.router.navigate(['products'])
-      });
+    this.authService.register(user).subscribe((savedUser) => {
+      console.log('User Saved in DB Successfully.', savedUser);
+      this.router.navigate(['products']);
+    });
   }
 
   passwordMatch(confirmPassword: FormControl) {
     const password = confirmPassword.root.get('password');
     console.log(password);
-    return password && confirmPassword.value !== password.value?
-    { 
-      passwordMatch: true 
-    }: null;
+    return password && confirmPassword.value !== password.value
+      ? {
+          passwordMatch: true,
+        }
+      : null;
     // 1.check whether password field is not empty.
     // 2.matching password with repassword.
   }

@@ -1,4 +1,4 @@
-<h1 style="margin-left: 50px;"> Hii...Product Component </h1>
+<h1 style="margin-left: 50px">Hii...Product Component</h1>
 
 <!-- <div *ngFor= "let product of (products|async) ">
     <img src="{{product.imgUrl}}"><br>   
@@ -6,20 +6,17 @@
     {{ product.price }}
 </div> -->
 
-<mat-grid-list cols='3' rowHeight='500px'>
-  <mat-grid-tile class="example-card" *ngFor= "let product of (products|async) ">
+<mat-grid-list cols="3" rowHeight="500px">
+  <mat-grid-tile class="example-card" *ngFor="let product of products | async">
     <mat-card>
-      <img mat-card-image src="{{product.imgUrl}}" alt="{{product.name}}">
+      <img mat-card-image src="{{ product.imgUrl }}" alt="{{ product.name }}" />
       <mat-card-content>
-      <p>
-        {{product.name}} : Rs.{{product.price}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+        <p>{{ product.name }} : Rs.{{ product.price }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
-

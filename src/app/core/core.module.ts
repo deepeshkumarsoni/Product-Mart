@@ -10,7 +10,7 @@ import { AuthenticationService } from './auth-service-token/authentication.servi
 @NgModule({
   declarations: [],
   imports: [CommonModule, CoreRoutingModule, SharedModule],
-  providers: [ httpInterceptorProviders ]
+  providers: [httpInterceptorProviders],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

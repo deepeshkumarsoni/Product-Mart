@@ -55,7 +55,9 @@
       ></i>
       Password Required Minimum 4 Characters .
     </span>
-    <mat-error *ngIf="userForm.controls.error">{{userForm.controls.error}}</mat-error>
+    <mat-error *ngIf="userForm.controls.error">{{
+      userForm.controls.error
+    }}</mat-error>
   </mat-card-content>
   <mat-card-actions>
     <button
@@ -68,7 +70,9 @@
     </button>
     <span style="margin-left: 12px"
       >If You Don't Have An Account Click Here
-      <a class="nav-link" [routerLink] = "['/auth/registeration']" > Register </a></span
+      <a class="nav-link" [routerLink]="['/auth/registeration']">
+        Register
+      </a></span
     >
   </mat-card-actions>
 </mat-card>

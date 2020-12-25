@@ -6,17 +6,17 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     redirectTo: '',
-  }, 
+  },
   {
     path: 'products',
     pathMatch: 'full',
-    loadChildren: () => import('./products/products.module').then((m) => m.ProductsModule),
+    loadChildren: () =>
+      import('./products/products.module').then((m) => m.ProductsModule),
   },
   {
-    path: "auth",  
+    path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
- 
 ];
 
 @NgModule({

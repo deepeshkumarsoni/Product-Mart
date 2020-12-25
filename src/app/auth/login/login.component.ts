@@ -29,21 +29,21 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.error = new BehaviorSubject("");
+    this.error = new BehaviorSubject('');
   }
 
   get userControl() {
     return this.userForm.controls;
   }
 
-  login() {    
+  login() {
     //this.setError("");
-    if (this.userForm.valid) {     
+    if (this.userForm.valid) {
       this.authService
         .login(
           this.userForm.get('email').value,
           this.userForm.get('password').value
-        ) 
+        )
         .subscribe(
           (s) => this.router.navigate(['/products']),
           (e) => (this.setError = e)
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
       this.userForm.reset();
     } else {
       alert('Login Form Invalid');
-    }    
+    }
   }
 
   private setError(msg: any) {

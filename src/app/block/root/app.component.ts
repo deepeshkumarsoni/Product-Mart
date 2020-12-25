@@ -9,20 +9,19 @@ import { User } from '@core/index';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent  {
+export class AppComponent {
   title = 'product-mart';
   user: User;
   userUnsubscribe: Subscription;
 
   constructor(
     private authService: AuthenticationService,
-    private router: Router){    
-      
-   // For Refresh Page
-    this.authService.findMe().subscribe(user => this.user = user);
-    
-    this.authService.user.subscribe(user => this.user = user);
+    private router: Router
+  ) {
+    // For Refresh Page
+    this.authService.findMe().subscribe((user) => (this.user = user));
 
+    this.authService.user.subscribe((user) => (this.user = user));
   }
 
   get userFullName() {
@@ -36,7 +35,7 @@ export class AppComponent  {
 
   //ngOnDestroy(): void {
   //  if (this.userUnsubscribe) {
-   //   this.userUnsubscribe.unsubscribe();
-   // }
- // }
+  //   this.userUnsubscribe.unsubscribe();
+  // }
+  // }
 }
