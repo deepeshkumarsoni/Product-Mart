@@ -13,13 +13,13 @@ router.post('/register',asyncHandler(insert),login);
 router.post('/login',passport.authenticate('local',{session:false}),login);
 router.get('/findme',passport.authenticate('jwt',{session:false}),login);
 
-router.get('/deepesh',function(){
-    const x = 5;
-    const y = 6;
-    result = x+y;
-    console.log('deepesh');
-    return "hii";
-})
+// router.get('/deepesh',function(){
+//     const x = 5;
+//     const y = 6;
+//     result = x+y;
+//     console.log('deepesh');
+//     return "hii";
+// })
 
 async function insert(req,res,next){
     const user = req.body;

@@ -6,7 +6,7 @@ const ExtractJWT = require('passport-jwt').ExtractJwt;
 const config = require('../configuration/config');
 const userController = require('../controller/user.controller');
 
-const localStrategy = new LocalStrategy(
+const localLogin = new LocalStrategy(
   { 
     usernameField : 'email',
     passwordField : 'password'
@@ -23,17 +23,17 @@ const localStrategy = new LocalStrategy(
 
 const jwtLogin = new JwtStrategy(
     {
-        jwtFromRequest : ExtractJWT.fromAuthHeaderAsBearerToken,
+        jwtFromRequest : ExtractJWT.fromAuthHeaderAsBearerToken(),
         secretOrKey : config.jwtSecret
     },
     async (payload,done)=> {
         const user = await userController.getUserById(payload._id);
-        return user?
-        done(null,user)
+        return user
+        ?done(null,user)
         :done(null,false,{
             error: "Your Login Details Are Not Valid.Please Try Again."
           });
     }
   );
 
-module.exports = passport.use(localStrategy).use(jwtLogin);
+module.exports = passport.use(localLogin).use(jwtLogin);
