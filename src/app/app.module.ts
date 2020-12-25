@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { BlockModule } from './block/block.module';
 import { AppComponent } from './block/root/app.component';
-import { CoreModule } from '@angular/flex-layout';
+import { CoreModule } from '@core/core.module';
 
 @NgModule({
   declarations: [],
@@ -23,6 +23,7 @@ import { CoreModule } from '@angular/flex-layout';
     ProductsModule,
     HttpClientModule,
   ],
+  // providers:[httpInterceptorProviders, AuthenticationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

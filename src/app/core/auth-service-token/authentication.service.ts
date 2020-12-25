@@ -37,7 +37,7 @@ export class AuthenticationService {
           return of(user);
         }),
         catchError((e) => {
-          this.logService.log(`Server Error Occured : ${e.error}`,e);
+          this.logService.log(`Server Error Occurred: ${e.error.message} `, e);
           return throwError(
             `Your loggin detais could not be verified.Please try again.`
           );
@@ -49,6 +49,7 @@ export class AuthenticationService {
   logout() {
     // Removing token from localStorage
     this.tokenStorage.removeToken();
+
     // Removing user from Subject. 
     this.setUser(null);
     console.log('U have logout successfully');
@@ -69,8 +70,8 @@ export class AuthenticationService {
         return of(user);
       }),
       // catchError is rxjs operator used for catching an error.
-      catchError((error) => {
-        console.log('Server error occured', error);
+      catchError((e) => {
+        this.logService.log(`Server Error Occurred `, e);
         // throwError is an rxjs operator which return an observable.
         return throwError('Registeration failed please contact to admin');
       })
@@ -94,11 +95,7 @@ export class AuthenticationService {
         return of(user);
       }),
       catchError((error) => {
-        console.log(
-          `Your loggin detais could not be verified.
-          Please try again.`,
-          error
-        );
+        this.logService.log(`Your loggin detais could not be verified.Please try again.`,error);        
         return throwError(
           `Your loggin detais could not be verified.
           Please try again.`

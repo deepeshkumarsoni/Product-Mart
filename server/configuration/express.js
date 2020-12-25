@@ -14,7 +14,7 @@ const app = express();
 
 // Logger
 if (config.env === "development") {
-  app.use(logger("dev"));
+  app.use(logger("dev")); 
 }
 
 // Getting 'dist' folder path

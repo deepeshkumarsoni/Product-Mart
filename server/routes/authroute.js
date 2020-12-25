@@ -29,7 +29,7 @@ async function insert(req,res,next){
    next();
 }
 
-function login(req,res){
+function login(req,res){                           
     const user = req.user;
     const token = authController.generateToken(user);
     res.json({

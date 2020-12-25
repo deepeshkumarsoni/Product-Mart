@@ -9,7 +9,7 @@ import { User } from '@core/index';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent  {
   title = 'product-mart';
   user: User;
   userUnsubscribe: Subscription;
@@ -21,7 +21,7 @@ export class AppComponent implements OnDestroy {
    // For Refresh Page
     this.authService.findMe().subscribe(user => this.user = user);
     
-    this.userUnsubscribe = this.authService.user.subscribe(user => this.user = user);
+    this.authService.user.subscribe(user => this.user = user);
 
   }
 
@@ -34,9 +34,9 @@ export class AppComponent implements OnDestroy {
     this.router.navigate(['']);
   }
 
-  ngOnDestroy(): void {
-    if (this.userUnsubscribe) {
-      this.userUnsubscribe.unsubscribe();
-    }
-  }
+  //ngOnDestroy(): void {
+  //  if (this.userUnsubscribe) {
+   //   this.userUnsubscribe.unsubscribe();
+   // }
+ // }
 }
