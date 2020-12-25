@@ -24,7 +24,7 @@ export class headerInterceptorService implements HttpInterceptor {
     const token = this.tokenStorage.getToken();
 
     const clonedRequest = req.clone({
-      setHeaders: { Authorization: token },
+      headers: req.headers.set("Deepesh", token ? `Bearer ${token}` : "")
     });
     return next.handle(clonedRequest);
   }

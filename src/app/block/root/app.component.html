@@ -2,41 +2,44 @@
 <button mat-raised-button color="accent">Accent</button>
 <button mat-raised-button color="warn">Warn</button>
 <button mat-raised-button disabled>Disabled</button> -->
+
 <header>
-  <mat-toolbar class="mat" color="accent">
-    <mat-toolbar-row>
-      <a class="header" routerLink="/"></a>
-
-      <a
-        mat-stroked-button
-        routerLink="/products"
-        routerLinkActive="active-link"
-        >Products</a
-      >
-
-      <a
-        *ngIf="!user"
-        mat-stroked-button
-        [routerLink]="['/auth/login']"
-        routerLinkActive="active-link"
-        >Login</a
-      >
-
-      <div *ngIf="user">
-        <a mat-stroked-button [matMenuTriggerFor]="menu">
-          <mat-icon> android</mat-icon> {{ user.fullName }}
-        </a>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="logout()">Logout</button>
-        </mat-menu>
-      </div>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</header>
-
+    <mat-toolbar class="mat" color="accent">
+      <mat-toolbar-row>
+        <a class="header" routerLink="/"></a>
+  
+        <a
+          mat-stroked-button
+          routerLink="/products"
+          routerLinkActive="active-link"
+          >Products</a
+        >
+  
+        <a
+          *ngIf="!user"
+          mat-stroked-button
+          [routerLink]="['/auth/login']"
+          routerLinkActive="active-link"
+          >Login</a
+        >
+  
+        <div *ngIf="user">
+          <a mat-stroked-button [matMenuTriggerFor]="menu">
+            <mat-icon> android</mat-icon> {{ user.fullName }}
+          </a>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="logout()">Logout</button>
+          </mat-menu>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </header>
 <h1>Hiii...Welcome To Product Mart</h1>
 
 <router-outlet></router-outlet>
+
+
+
 
 <!-- <h2 style="margin-left: 13cm;margin-right: 14cm;"> Welcome To Product-Mart </h2> -->
 

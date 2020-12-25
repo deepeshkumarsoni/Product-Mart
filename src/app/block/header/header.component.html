@@ -1,1 +1,31 @@
-<p>header works!</p>
+<!-- <header>
+    <mat-toolbar class="mat" color="accent">
+      <mat-toolbar-row>
+        <a class="header" routerLink="/"></a>
+  
+        <a
+          mat-stroked-button
+          routerLink="/products"
+          routerLinkActive="active-link"
+          >Products</a
+        >
+  
+        <a
+          *ngIf="!user"
+          mat-stroked-button
+          [routerLink]="['/auth/login']"
+          routerLinkActive="active-link"
+          >Login</a
+        >
+  
+        <div *ngIf="user">
+          <a mat-stroked-button [matMenuTriggerFor]="menu">
+            <mat-icon> android</mat-icon> {{ user.fullName }}
+          </a>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="logout()">Logout</button>
+          </mat-menu>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </header> -->
