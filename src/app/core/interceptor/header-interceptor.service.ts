@@ -3,9 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TokenStorageService } from '../auth-service-token/token-storage.service';
 
-@Injectable()
 
-export class AuthHeaderInterceptor implements HttpInterceptor {
+@Injectable({
+  providedIn: 'root'
+})
+export class headerInterceptorService implements HttpInterceptor {
 
   constructor( private tokenStorage: TokenStorageService ) {}
  
