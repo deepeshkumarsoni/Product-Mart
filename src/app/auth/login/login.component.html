@@ -1,4 +1,4 @@
-<h1 style="margin-left: 320px">Hii...Welcome To Login Component</h1>
+
 <mat-card [formGroup]="userForm" class="register-card">
   <mat-card-header>
     <mat-card-title class="title"><u> LOGIN FORM </u></mat-card-title>
@@ -61,14 +61,14 @@
   </mat-card-content>
   <mat-card-actions>
     <button
-      style="margin-left: 3cm"
+      style="margin-left: 4cm"
       mat-raised-button
       color="accent"
       (click)="login()"
     >
       Login
-    </button>
-    <span style="margin-left: 12px"
+    </button><br>
+    <span style="margin-left: 1cm"
       >If You Don't Have An Account Click Here
       <a class="nav-link" [routerLink]="['/auth/registeration']">
         Register

@@ -1,0 +1,28 @@
+.title{
+  margin-left: 5px;  
+}
+
+.product{
+  margin-left: 25px;
+}
+
+.login{
+  margin-right: 30px;
+}
+
+.header-spacer{
+  flex: 1 1 auto;  
+}
+
+.active-link {
+  background-color: tomato;
+}
+
+.header {
+  background-image: url("../../../assets/images/favicons.ico");
+  height: 50px;
+  width: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 3px;
+}

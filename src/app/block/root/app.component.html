@@ -3,7 +3,7 @@
 <button mat-raised-button color="warn">Warn</button>
 <button mat-raised-button disabled>Disabled</button> -->
 
-<header>
+<!-- <header>
     <mat-toolbar class="mat" color="accent">
       <mat-toolbar-row>
         <a class="header" routerLink="/"></a>
@@ -33,8 +33,10 @@
         </div>
       </mat-toolbar-row>
     </mat-toolbar>
-  </header>
-<h1>Hiii...Welcome To Product Mart</h1>
+  </header> -->
+<!-- <h1>Hiii...Welcome To Product Mart</h1> -->
+
+<app-header [user] = "user | async" (logoutEvent)="logout()"></app-header>
 
 <router-outlet></router-outlet>
 

@@ -16,7 +16,7 @@
         required
       /> </mat-form-field
     ><br />
-    <span *ngIf="userGroup.touched">
+    <!-- <span *ngIf="userGroup.touched">
       <i
         class="fa fa-check-circle"
         style="color: green"
@@ -29,7 +29,7 @@
       ></i>
       First Name Must Be Require.
     </span>
-    <br /><br />
+    <br /><br /> -->
     <mat-form-field class="full-width">
       <mat-label>Email</mat-label>
       <input
@@ -41,7 +41,7 @@
         required
       /> </mat-form-field
     ><br />
-    <span *ngIf="userGroup.controls.email.touched">
+    <!-- <span *ngIf="userGroup.controls.email.touched">
       <i
         class="fa fa-check-circle"
         style="color: green"
@@ -55,7 +55,7 @@
       Email Validation.
     </span>
 
-    <br /><br />
+    <br /><br /> -->
     <mat-form-field class="full-width">
       <mat-label>Password</mat-label>
       <input
@@ -67,7 +67,7 @@
         required
       /> </mat-form-field
     ><br />
-    <span *ngIf="userGroup.controls.password.touched">
+    <!-- <span *ngIf="userGroup.controls.password.touched">
       <i
         class="fa fa-check-circle"
         style="color: green"
@@ -80,7 +80,7 @@
       ></i>
       Password must be of 4 characters.
     </span>
-    <br /><br />
+    <br /><br /> -->
 
     <mat-form-field class="full-width">
       <mat-label>Confirm Password</mat-label>
@@ -92,8 +92,8 @@
         type="password"
         required
       /> </mat-form-field
-    ><br />
-    <span *ngIf="userGroup.controls.confirmPassword.touched">
+    >
+    <!-- <span *ngIf="userGroup.controls.confirmPassword.touched">
       <i
         class="fa fa-check-circle"
         style="color: green"
@@ -109,7 +109,7 @@
         "
       ></i>
       Password Match.
-    </span>
+    </span> -->
     <!-- <mat-error
       *ngIf="
         userGroup.controls.confirmPassword.invalid &&
@@ -127,7 +127,7 @@
       (click)="register()"
     >
       Register
-    </button>
+    </button><br>
     <span style="margin-left: 12px"
       >If you have already an aacount click on
       <a class="nav-link" [routerLink]="['/auth/login']"> Login </a></span
