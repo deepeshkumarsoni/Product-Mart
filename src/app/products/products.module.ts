@@ -6,6 +6,7 @@ import { ProductComponent } from './product/product.component';
 import { ProductService } from '../core/product-services/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PmDemoMaterialModule } from '../shared/material-module';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [ProductComponent],
@@ -14,6 +15,7 @@ import { PmDemoMaterialModule } from '../shared/material-module';
     ProductsRoutingModule,
     HttpClientModule,
     PmDemoMaterialModule,
+    SharedModule,
   ],
   providers: [ProductService],
 })
