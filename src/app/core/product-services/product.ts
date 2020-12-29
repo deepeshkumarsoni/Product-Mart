@@ -1,5 +1,5 @@
 export interface ProductInt {
-    id: number;
+    productId: number;
     price: number;
     name: string;
     imgUrl: string;
