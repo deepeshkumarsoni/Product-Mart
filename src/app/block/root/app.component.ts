@@ -33,7 +33,7 @@ export class AppComponent implements OnDestroy, OnInit {
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['']);
+    this.router.navigate(['/home']);
   }
 
   ngOnDestroy(): void {

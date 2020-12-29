@@ -10,9 +10,10 @@ import { SharedModule } from './shared/shared.module';
 import { BlockModule } from './block/block.module';
 import { AppComponent } from './block/root/app.component';
 import { CoreModule } from '@core/core.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

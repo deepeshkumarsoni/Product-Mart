@@ -1,5 +1,68 @@
+<mat-card class="login-card">
+  <mat-card-header>
+    <mat-card-title style="color: red;margin-left: 8cm;" >Login Form</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <table cellspacing="0" class="full-width">
+        <tr>
+          <td>
+            <mat-form-field class="full-width">
+              <input
+                name="email"
+                [(ngModel)]="email"
+                matInput
+                placeholder="Email"
+                required
+                type="email"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="full-width">
+              <input
+                name="password"
+                [(ngModel)]="password"
+                matInput
+                placeholder="Password"
+                required
+                type="password"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-error *ngIf="error">{{ error | async }}</mat-error>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      class="full-width"
+      mat-raised-button
+      color="accent"
+      (click)="login()"
+      [tabIndex]="0"
+    >
+      Login
+    </button>
+    <div style="margin-top: 2em;margin-left: 7cm;">
+      <span>
+        New to Product Mart?
+        <a [routerLink]="['/auth/registeration']">Sign up</a> here.
+      </span>
+    </div>
+  </mat-card-actions>
+</mat-card>
 
-<mat-card [formGroup]="userForm" class="register-card">
+
+
+<!-- <mat-card [formGroup]="userForm" class="register-card">
   <mat-card-header>
     <mat-card-title class="title"><u> LOGIN FORM </u></mat-card-title>
   </mat-card-header>
@@ -55,9 +118,11 @@
       ></i>
       Password Required Minimum 4 Characters .
     </span>
-    <mat-error *ngIf="userForm.controls.error">{{
-      userForm.controls.error
+
+    <mat-error *ngIf="error">{{
+      error | async
     }}</mat-error>
+
   </mat-card-content>
   <mat-card-actions>
     <button
@@ -78,7 +143,7 @@
     >
   </div>
   </mat-card-actions>
-</mat-card>
+</mat-card> -->
 
 <!-- <pre>
   {{userForm.value | json}}

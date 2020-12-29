@@ -1,4 +1,103 @@
-<!-- <h1 style="margin-left: 290px">Hii...Welcome To Registeration Component</h1> -->
+<mat-card class="register-card">
+  <mat-card-header>
+    <mat-card-title style="color: red;margin-left: 8cm;">Register Form</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <table cellspacing="0" class="full-width" [formGroup]="userForm">
+        <tr>
+          <td>
+            <mat-form-field class="full-width">
+              <input
+                name="fullname"
+                formControlName="fullname"
+                matInput
+                placeholder="FullName"
+                required
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="full-width">
+              <input
+                name="email"
+                formControlName="email"
+                matInput
+                placeholder="Email"
+                required
+                type="email"
+              />
+            </mat-form-field>
+            <mat-error *ngIf="email.invalid && email.errors.email">
+              Invalid email
+            </mat-error>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="full-width">
+              <input
+                name="password"
+                formControlName="password"
+                matInput
+                placeholder="Password"
+                required
+                type="password"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="full-width">
+              <input
+                name="repeatPassword"
+                formControlName="repeatPassword"
+                matInput
+                placeholder="Repeat Password"
+                required
+                type="password"
+              />
+            </mat-form-field>
+            <mat-error
+              *ngIf="
+                repeatPassword.invalid && repeatPassword.errors.passwordMatch
+              "
+            >
+              Password should match
+            </mat-error>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-error *ngIf="error">{{ error | async }}</mat-error>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      class="full-width"
+      mat-raised-button
+      color="accent"
+      (click)="register()"
+    >
+      Register
+    </button>
+    <div style="margin-top: 2em;margin-left: 7cm;">
+      <span class="left-spacer"
+        >Already have a account <a [routerLink]="['/auth/login']">login</a> here</span
+      >
+    </div>
+  </mat-card-actions>
+</mat-card>
+
+
+
+<!-- <h1 style="margin-left: 290px">Hii...Welcome To Registeration Component</h1>
 <mat-card [formGroup]="userGroup" class="register-card">
   <mat-card-header>
     <mat-card-title class="header"><u> REGISTERATION FORM </u></mat-card-title>
@@ -16,7 +115,7 @@
         required
       /> </mat-form-field
     ><br />
-    <!-- <span *ngIf="userGroup.touched">
+    <span *ngIf="userGroup.touched">
       <i
         class="fa fa-check-circle"
         style="color: green"
@@ -29,7 +128,7 @@
       ></i>
       First Name Must Be Require.
     </span>
-    <br /><br /> -->
+    <br /><br />
     <mat-form-field class="full-width">
       <mat-label>Email</mat-label>
       <input
@@ -41,7 +140,7 @@
         required
       /> </mat-form-field
     ><br />
-    <!-- <span *ngIf="userGroup.controls.email.touched">
+    <span *ngIf="userGroup.controls.email.touched">
       <i
         class="fa fa-check-circle"
         style="color: green"
@@ -55,7 +154,7 @@
       Email Validation.
     </span>
 
-    <br /><br /> -->
+    <br /><br />
     <mat-form-field class="full-width">
       <mat-label>Password</mat-label>
       <input
@@ -67,7 +166,7 @@
         required
       /> </mat-form-field
     ><br />
-    <!-- <span *ngIf="userGroup.controls.password.touched">
+    <span *ngIf="userGroup.controls.password.touched">
       <i
         class="fa fa-check-circle"
         style="color: green"
@@ -80,7 +179,7 @@
       ></i>
       Password must be of 4 characters.
     </span>
-    <br /><br /> -->
+    <br /><br />
 
     <mat-form-field class="full-width">
       <mat-label>Confirm Password</mat-label>
@@ -93,7 +192,7 @@
         required
       /> </mat-form-field
     >
-    <!-- <span *ngIf="userGroup.controls.confirmPassword.touched">
+    <span *ngIf="userGroup.controls.confirmPassword.touched">
       <i
         class="fa fa-check-circle"
         style="color: green"
@@ -109,15 +208,15 @@
         "
       ></i>
       Password Match.
-    </span> -->
-    <!-- <mat-error
+    </span> 
+   <mat-error
       *ngIf="
         userGroup.controls.confirmPassword.invalid &&
         userGroup.controls.confirmPassword.errors.passwordMatch
       "
     >
       Invalid Password
-    </mat-error> -->
+    </mat-error> 
   </mat-card-content>
   <mat-card-actions>
     <button
@@ -131,6 +230,6 @@
     <span style="margin-left: 12px"
       >Already have an acount click here
       <a class="nav-link" [routerLink]="['/auth/login']"> Login </a></span
-    >
+    > 
   </mat-card-actions>
-</mat-card>
+</mat-card> -->

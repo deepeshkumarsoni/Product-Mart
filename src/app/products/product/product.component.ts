@@ -18,8 +18,8 @@ export class ProductComponent implements OnInit, OnDestroy {
   displayedColumns = ["imgUrl", "name", "price", "action"];
   
   @ViewChild(MatSort) sort: MatSort;
-
-  // @ViewChild(MatPaginator) paginator: MatPaginator;
+  
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private productService: ProductService) {}
 
@@ -42,7 +42,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   onDataLoad(products) {
     this.loading = false;
     this.dataSource.sort = this.sort;
-    // this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator = this.paginator;
     this.dataSource.data = products;
   }
 

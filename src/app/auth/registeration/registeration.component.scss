@@ -1,15 +1,27 @@
+.register-card {
+    max-width: 800px;
+    min-width: 150px;
+    margin: 10% auto;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
 
-.header{    
-    margin-left: 3cm;
-    color: deeppink;
-}
-.register-card{
-    max-width: 600px;   
-    max-height: fit-content;
-    margin: 10px auto;
-    margin-top: 10px;
-    background-color: aqua;
-}
-.full-width{
-    width: 90%;
-}
+
+
+// .header{    
+//     margin-left: 3cm;
+//     color: deeppink;
+// }
+// .register-card{
+//     max-width: 600px;   
+//     max-height: fit-content;
+//     margin: 10px auto;
+//     margin-top: 10px;
+//     background-color: aqua;
+// }
+// .full-width{
+//     width: 90%;
+// }

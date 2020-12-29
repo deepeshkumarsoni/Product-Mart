@@ -11,7 +11,7 @@ export class ProductService {
   constructor(private $http: HttpClient) {}
 
   getAllProducts(): Observable<ProductInt> {
-    return this.$http.get('products.json').pipe(delay(2000)) as 
+    return this.$http.get('products.json').pipe(delay(1000)) as 
     Observable<ProductInt>;
   }
 }

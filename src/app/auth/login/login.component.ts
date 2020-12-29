@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '@core/index';
 import { BehaviorSubject } from 'rxjs';
@@ -8,50 +7,26 @@ import { BehaviorSubject } from 'rxjs';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class LoginComponent implements OnInit {
-  userForm: FormGroup;
+  email: string;
+  password: string;
   error: BehaviorSubject<string>;
 
-  constructor(
-    private router: Router,
-    private authService: AuthenticationService
-  ) {
-    this.userForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(10),
-      ]),
-    });
-  }
+  constructor(private router: Router, private authService: AuthenticationService) {}
+
 
   ngOnInit(): void {
     this.error = new BehaviorSubject('');
   }
 
-  get userControl() {
-    return this.userForm.controls;
-  }
-
   login() {
-    //this.setError("");
-    if (this.userForm.valid) {
-      this.authService
-        .login(
-          this.userForm.get('email').value,
-          this.userForm.get('password').value
-        )
-        .subscribe(
-          (s) => this.router.navigate(['/products']),
-          (e) => (this.setError = e)
-        );
-      this.userForm.reset();
-    } else {
-      alert('Login Form Invalid');
-    }
+    this.setError("");
+    this.authService.login(this.email, this.password).subscribe(
+      (s) => this.router.navigate(['/products']),
+      (e) => this.setError(e)
+    );   
   }
 
   private setError(msg: any) {
@@ -65,3 +40,16 @@ export class LoginComponent implements OnInit {
 //   .subscribe((s) => console.log(s));  // Subscribed Observable
 // this.router.navigate(['']);
 //}
+
+
+ // this.setError("");
+    // this.authService
+    //     .login(this.email,this.password)
+    //     .subscribe(
+    //       (s) => this.router.navigate(['/products']),
+    //       (e) => (this.setError = e)
+    //     );
+    //   this.userForm.reset();
+    // } else {
+    //   alert('Login Form Invalid');
+    // }
