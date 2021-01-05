@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from "@core/store";
-import { CartItem } from './cart-item';
+import { CartItemInterface } from './cart-item';
 import { CartState, initialState } from "./cart-state";
 
 @Injectable({
@@ -11,7 +11,7 @@ export class CartStoreService extends Store<CartState> {
     super(initialState);
   }
 
-  addCartItem(addItemToCart:CartItem){
+  addCartItem(addItemToCart:CartItemInterface){
     console.log('[Cart] Add Card Item');
     const newState = {
       ...this.state,   // cartItem
@@ -33,28 +33,26 @@ export class CartStoreService extends Store<CartState> {
     this.setState(stateToRestore);
   }
 
-  removeCartItem(removeItemFromCart:CartItem){
+  removeCartItem(removeItemFromCart:CartItemInterface){
     console.log('[Cart] Remove Item Cart');
     const newState = {
       ...this.state,   // cartItem
       cartItems: this.state.cartItems.filter(cartItem =>
-        cartItem.id !== removeItemFromCart.id)
+        cartItem.productId !== removeItemFromCart.productId)
     };
     this.setState(newState);
   }
 
-  updateCartItem(cartItemToUpdate:CartItem){
+  updateCartItem(cartItemToUpdate:CartItemInterface){
     console.log('[Cart] Update Cart Item');
     const newState = {
       ...this.state,   // cartItem
       cartItems: this.state.cartItems.map(cartItem =>
-        cartItem.id == cartItemToUpdate.id
+        cartItem.productId == cartItemToUpdate.productId
         ? cartItemToUpdate
         :cartItem
       )
     };
     this.setState(newState);
   }
-
-
 }

@@ -1,4 +1,4 @@
-import { CartItem } from "./cart-item";
+import { CartItemInterface } from "./cart-item";
 import { CartState } from "./cart-state";
 import { getCartItemsCount } from "./cartSelectors";
 
@@ -11,16 +11,16 @@ describe("Cart Store Selectors", () => {
     let cartState: CartState;
     let result: number;
     given(() => {
-      const tenApples: CartItem = {
-        id: 1,
+      const tenApples: CartItemInterface = {
+        productId: 1,
         quantity: 10,
         imgUrl: "img/apple",
         itemTotal: 20,
         name: "apple",
         price: 2
       };
-      const fiveOranges: CartItem = {
-        id: 1,
+      const fiveOranges: CartItemInterface = {
+        productId: 1,
         quantity: 5,
         imgUrl: "img/orange",
         itemTotal: 20,

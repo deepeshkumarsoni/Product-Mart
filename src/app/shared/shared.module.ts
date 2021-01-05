@@ -5,9 +5,10 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { RouterModule } from '@angular/router';
 import { PmDemoMaterialModule } from './material-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CartItemCountComponent } from './cart/cart-item-count/cart-item-count.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [CartItemCountComponent],
   imports: [
     CommonModule,
     SharedRoutingModule,
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     RouterModule,
     FlexLayoutModule,
+    CartItemCountComponent
   ],
 })
 export class SharedModule {}

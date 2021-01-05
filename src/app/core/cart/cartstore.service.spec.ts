@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { CartItem } from './cart-item';
+import { CartItemInterface } from './cart-item';
 import { CartState, initialState } from './cart-state';
 import { CartStoreService } from './cartstore.service';
 
@@ -20,8 +20,8 @@ describe('CartstoreService', () => {
     // const currentState = initialState;
     // expect(currentState.cartItems.length).toBe(0);
 
-    const cartItem: CartItem = {
-      id: 1,
+    const cartItem: CartItemInterface = {
+      productId: 1,
       price: 5,
       name: 'Mango',
       imgUrl: 'img/Mango',
@@ -53,8 +53,8 @@ describe('CartstoreService', () => {
     
     expect(cartStoreService.state).toEqual(currentState);
 
-    const cartItem: CartItem = {
-      id: 1,
+    const cartItem: CartItemInterface = {
+      productId: 1,
       price: 5,
       name: 'Mango',
       imgUrl: 'img/Mango',
@@ -78,16 +78,16 @@ describe('CartstoreService', () => {
 
   it(' Delete item from cart ', () => {
     //#region  Arrange     
-      const cartItem1: CartItem = {
-        id: 1,
+      const cartItem1: CartItemInterface = {
+        productId: 1,
         price: 5,
         name: 'Mango',
         imgUrl: 'img/Mango',
         quantity: 5,
         itemTotal: 25,
       };
-      const cartItem2: CartItem = {
-        id: 2,
+      const cartItem2: CartItemInterface = {
+        productId: 2,
         price: 6,
         name: 'Apple',
         imgUrl: 'img/Apple',
@@ -117,16 +117,16 @@ describe('CartstoreService', () => {
 
   it(' Update item to cart ', () => {
       //#region  Arrange     
-        const cartItem1: CartItem = {
-          id: 1,
+        const cartItem1: CartItemInterface = {
+          productId: 1,
           price: 5,
           name: 'Mango',
           imgUrl: 'img/Mango',
           quantity: 5,
           itemTotal: 25,
         };
-        const cartItem2: CartItem = {
-          id: 2,
+        const cartItem2: CartItemInterface = {
+          productId: 2,
           price: 6,
           name: 'Apple',
           imgUrl: 'img/Apple',
@@ -143,8 +143,8 @@ describe('CartstoreService', () => {
         //#endregion
           
       //#region  Act
-      const cartItemToUpdate: CartItem = {
-        id: 1,
+      const cartItemToUpdate: CartItemInterface = {
+        productId: 1,
         price: 5,
         name: 'Mango',
         imgUrl: 'img/Mango',

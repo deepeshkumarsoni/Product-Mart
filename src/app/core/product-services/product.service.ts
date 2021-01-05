@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ProductInt } from './product';
+import { ProductInterface } from './product';
 import { delay } from 'rxjs/operators';
 
 @Injectable({
@@ -10,8 +10,8 @@ import { delay } from 'rxjs/operators';
 export class ProductService {
   constructor(private $http: HttpClient) {}
 
-  getAllProducts(): Observable<ProductInt> {
+  getAllProducts(): Observable<ProductInterface> {
     return this.$http.get('products.json').pipe(delay(1000)) as 
-    Observable<ProductInt>;
+    Observable<ProductInterface>;
   }
 }
