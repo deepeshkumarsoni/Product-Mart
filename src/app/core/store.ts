@@ -10,11 +10,11 @@ export class Store<T> {
     this.state$ = this._state$.asObservable();
   }
 
-//   select<T>(selectorFunction: any): Observable<T> {
-//     return this.state$.pipe(
-//       distinctUntilChanged(),
-//       map(selectorFunction));
-//   }
+  select<T>(selectorFunction: any): Observable<T> {
+    return this.state$.pipe(
+      distinctUntilChanged(),
+      map(selectorFunction));
+  }
 
   // sync
   get state() {
