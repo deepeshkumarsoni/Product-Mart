@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 import { PmDemoMaterialModule } from './material-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartItemCountComponent } from './cart/cart-item-count/cart-item-count.component';
+import { AddToCartComponent } from './cart/add-to-cart/add-to-cart.component';
 
 @NgModule({
-  declarations: [CartItemCountComponent],
+  declarations: [CartItemCountComponent, AddToCartComponent],
   imports: [
     CommonModule,
     SharedRoutingModule,

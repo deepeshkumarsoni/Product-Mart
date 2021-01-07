@@ -3,7 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CartService } from '@core/cart/cart.service';
-import { ProductInterface } from '@core/product-services/product';
+import { CartStoreService } from '@core/cart/cartstore.service';
+import { ProductInt } from '@core/product-services/product';
 import { ProductService } from '@core/product-services/product.service';
 
 @Component({
@@ -13,7 +14,7 @@ import { ProductService } from '@core/product-services/product.service';
 })
 export class ProductComponent implements OnInit, OnDestroy {
   
-  dataSource = new MatTableDataSource<ProductInterface>();
+  dataSource = new MatTableDataSource<ProductInt>();
   loading = true;                
   subscriptions = [];
   displayedColumns = ["imgUrl", "name", "price", "action"];
@@ -42,8 +43,8 @@ export class ProductComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach((s) => s.unsubscribe());
   }
 
-  addItemToCart(product:any){
-    this.cartService.addToCart(product,2);    
+  addItemToCart(product){
+    this.cartService.addToCart(product,2);
   }
 
   onDataLoad(products) {

@@ -21,7 +21,7 @@ describe('CartstoreService', () => {
     // expect(currentState.cartItems.length).toBe(0);
 
     const cartItem: CartItemInterface = {
-      productId: 1,
+      id: 1,
       price: 5,
       name: 'Mango',
       imgUrl: 'img/Mango',
@@ -54,7 +54,7 @@ describe('CartstoreService', () => {
     expect(cartStoreService.state).toEqual(currentState);
 
     const cartItem: CartItemInterface = {
-      productId: 1,
+      id: 1,
       price: 5,
       name: 'Mango',
       imgUrl: 'img/Mango',
@@ -79,7 +79,7 @@ describe('CartstoreService', () => {
   it(' Delete item from cart ', () => {
     //#region  Arrange     
       const cartItem1: CartItemInterface = {
-        productId: 1,
+        id: 1,
         price: 5,
         name: 'Mango',
         imgUrl: 'img/Mango',
@@ -87,7 +87,7 @@ describe('CartstoreService', () => {
         itemTotal: 25,
       };
       const cartItem2: CartItemInterface = {
-        productId: 2,
+        id: 2,
         price: 6,
         name: 'Apple',
         imgUrl: 'img/Apple',
@@ -118,7 +118,7 @@ describe('CartstoreService', () => {
   it(' Update item to cart ', () => {
       //#region  Arrange     
         const cartItem1: CartItemInterface = {
-          productId: 1,
+          id: 1,
           price: 5,
           name: 'Mango',
           imgUrl: 'img/Mango',
@@ -126,7 +126,7 @@ describe('CartstoreService', () => {
           itemTotal: 25,
         };
         const cartItem2: CartItemInterface = {
-          productId: 2,
+          id: 2,
           price: 6,
           name: 'Apple',
           imgUrl: 'img/Apple',
@@ -144,7 +144,7 @@ describe('CartstoreService', () => {
           
       //#region  Act
       const cartItemToUpdate: CartItemInterface = {
-        productId: 1,
+        id: 1,
         price: 5,
         name: 'Mango',
         imgUrl: 'img/Mango',
