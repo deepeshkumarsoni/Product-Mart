@@ -22,7 +22,8 @@ import { AddToCartComponent } from './cart/add-to-cart/add-to-cart.component';
     ReactiveFormsModule,
     RouterModule,
     FlexLayoutModule,
-    CartItemCountComponent
+    CartItemCountComponent,
+    AddToCartComponent
   ],
 })
 export class SharedModule {}

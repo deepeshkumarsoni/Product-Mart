@@ -5,7 +5,6 @@ import { CoreRoutingModule } from './core-routing.module';
 import { throwIfAlreadyLoaded } from './utils/module-import-guard';
 import { SharedModule } from '../shared/shared.module';
 import { httpInterceptorProviders } from './interceptor';
-import { AuthenticationService } from './auth-service-token/authentication.service';
 
 @NgModule({
   declarations: [],

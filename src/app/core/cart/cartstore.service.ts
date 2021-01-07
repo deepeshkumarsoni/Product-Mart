@@ -20,7 +20,7 @@ export class CartStoreService extends Store<CartState> {
     this.setState(newState);
   }
 
-  clearStore(){
+  clearCart(){
     console.log('[Cart] Clear Cart Item');
 
     const newState = initialState;
@@ -55,4 +55,5 @@ export class CartStoreService extends Store<CartState> {
     };
     this.setState(newState);
   }
+  
 }

@@ -40,7 +40,7 @@ describe('CartstoreService', () => {
     expect(cartStoreService.state).toEqual(currentState);
 
     // Act
-    cartStoreService.clearStore();
+    cartStoreService.clearCart();
 
     // Assert
     expect(cartStoreService.state).toEqual(initialState);
