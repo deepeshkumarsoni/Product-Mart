@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EMPTY, of, Subject, throwError } from 'rxjs';
+import { BehaviorSubject, EMPTY, of, Subject, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { TokenStorageService } from './token-storage.service';
 import { User } from '@core/user';
@@ -15,14 +15,23 @@ interface UserDto {
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private userSubject = new Subject<User>();
+  private user$ = new BehaviorSubject<User>(null);
   private apiUrl = '/api/auth/';
+  private redirectUrlAfterLogin = '';
 
   constructor(
     private httpClient: HttpClient,
     private tokenStorage: TokenStorageService,
     private logService: LogService
   ) {}
+
+  get isUserLoggedIn(){
+    return this.user$.value !== null;
+  }
+  
+  set redirectUrl(url: string){
+    this.redirectUrlAfterLogin = url;
+  }
 
   login(email: string, password: string) {
     const loginCredential = { email, password };
@@ -34,7 +43,7 @@ export class AuthenticationService {
           this.setUser(user);
           this.tokenStorage.setToken(token);
           console.log('User Found Successfully', user);
-          return of(user);
+          return of(this.redirectUrlAfterLogin);
         }),
         catchError((e) => {
           this.logService.log(`Server Error Occurred: ${e.error.message} `, e);
@@ -56,7 +65,7 @@ export class AuthenticationService {
   }
 
   get user() {
-    return this.userSubject.asObservable();
+    return this.user$.asObservable();
   }
 
   register(userToSave: any) {
@@ -109,6 +118,6 @@ export class AuthenticationService {
   }
 
   private setUser(user) {
-    this.userSubject.next(user);
+    this.user$.next(user);
   }
 }

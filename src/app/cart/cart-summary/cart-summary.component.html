@@ -1,34 +1,30 @@
-
 <mat-card class="sc-checkout">
-    <mat-card-content>
-      <mat-list role="list">
-        <mat-list-item role="listitem">
-          <span> Items ({{cartItemsCount|async}})</span>
-          <span class="spacer"> </span>
-          <span> {{cartSubTotal|async|currency}}</span>
-        </mat-list-item>
-  
-        <mat-list-item role="listitem">
-          <span> Shipping to 08902 </span>
-          <span class="spacer"> </span>
-          <span> {{shippingCost|async| currency}}</span>
-        </mat-list-item>
-  
-        <mat-list-item role="listitem">
-          <span> Estimated tax
-          </span>
-          <span class="spacer"> </span>
-          <span> {{estimatedTax|async| currency}}</span>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-  
-        <mat-list-item role="listitem">
-          <span> <strong>Order Total: </strong>
-          </span>
-          <span class="spacer"> </span>
-          <span class="mat-title"> {{orderTotal|async| currency}}</span>
-        </mat-list-item>
-  
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <span> Items ({{ cartItemsCount | async }})</span>
+        <span class="item"> {{ cartSubTotal | async | currency }}</span>
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        <span> Shipping Charge </span>
+        
+        <span class="ship"> {{ shippingCost | async | currency }}</span>
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        <span> Estimated Tax </span>
+        <span > </span>
+        <span class="tax" > {{ estimatedTax | async | currency }}</span>
+      </mat-list-item>
+
+      <mat-divider></mat-divider>
+
+      <mat-list-item role="listitem">
+        <span> <strong>Order Total: </strong> </span>
+        <span class="total"> </span>
+        <span class="mat-title"> {{ orderTotal | async | currency }}</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
