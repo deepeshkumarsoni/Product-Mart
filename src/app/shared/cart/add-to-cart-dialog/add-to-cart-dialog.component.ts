@@ -27,11 +27,11 @@ export class AddToCartDialogComponent implements OnInit {
   }
 
   goToCart() {
-    this.router.navigate(["cart"]).then(() => this.closeDialog());
+    this.router.navigate(["/cart"]).then(() => this.closeDialog());
   }
 
   continueShopping() {
-    this.router.navigate(["products"]).then(() => this.closeDialog());
+    this.router.navigate(["/products"]).then(() => this.closeDialog());
   }
 
   closeDialog() {

@@ -35,14 +35,14 @@ export class AuthenticationService {
 
   login(email: string, password: string) {
     const loginCredential = { email, password };
-    console.log('Login Credential', loginCredential);
+    this.logService.log('Login Credential', loginCredential);
     return this.httpClient
       .post<UserDto>(`${this.apiUrl}login`, loginCredential)
       .pipe(
         switchMap(({ user, token }) => {
           this.setUser(user);
           this.tokenStorage.setToken(token);
-          console.log('User Found Successfully', user);
+          this.logService.log('User Found Successfully', user);
           return of(this.redirectUrlAfterLogin);
         }),
         catchError((e) => {
@@ -61,7 +61,7 @@ export class AuthenticationService {
 
     // Removing user from Subject.
     this.setUser(null);
-    console.log('U have logout successfully');
+    this.logService.log('U have logout successfully');
   }
 
   get user() {
@@ -76,7 +76,7 @@ export class AuthenticationService {
         switchMap(({ user, token }) => {
           this.setUser(user);
           this.tokenStorage.setToken(token);
-          console.log('User Registered Successfuly');
+          this.logService.log('User Registered Successfuly');
           return of(user);
         }),
         // catchError is rxjs operator used for catching an error.
@@ -99,11 +99,14 @@ export class AuthenticationService {
       return EMPTY;
     }
     return this.httpClient.get<any>(`${this.apiUrl}findme`).pipe(
-      switchMap((user) => {
-        this.setUser(user);
-        console.log('User Found Successfully', user);
-        return of(user);
-      }),
+      switchMap(({ user, token }) => {
+        return this.setUserAfterUserFoundFromServer(user, token);
+      }),      
+      // switchMap((user) => {
+      //   this.setUser(user);
+      //   console.log('User Found Successfully', user);
+      //   return of(user);
+      // }),
       catchError((error) => {
         this.logService.log(
           `Your loggin detais could not be verified.Please try again.`,
@@ -117,7 +120,22 @@ export class AuthenticationService {
     );
   }
 
+  private setUserAfterUserFoundFromServer(user: User, token: string) {
+    this.setUser(user);
+    this.tokenStorage.setToken(token);
+    this.logService.log(`User found in server`, user);
+
+    return of(user);
+  }
+
   private setUser(user) {
-    this.user$.next(user);
+    if(user){
+    const newUser = { ...user, id: user._id };
+    this.user$.next(newUser);
+    this.logService.log(`Logged In User`, newUser);    
+    }
+    else{
+      this.user$.next(null);        
+    }
   }
 }

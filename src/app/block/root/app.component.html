@@ -36,7 +36,7 @@
   </header> -->
 <!-- <h1>Hiii...Welcome To Product Mart</h1> -->
 
-<app-header [user] = "user | async" (logoutEvent)="logout()"></app-header>
+<app-header [user] = "user$ | async" (logoutEvent)="logout()"></app-header>
 
 <router-outlet></router-outlet>
 

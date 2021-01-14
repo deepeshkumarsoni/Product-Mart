@@ -26,5 +26,6 @@ import { AddToCartDialogComponent } from './cart/add-to-cart-dialog/add-to-cart-
     CartItemCountComponent,
     AddToCartComponent
   ],
+  entryComponents: [AddToCartDialogComponent]
 })
 export class SharedModule {}

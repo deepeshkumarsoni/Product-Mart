@@ -6,6 +6,7 @@ import { getIsItemAlreadyInCart } from '@core/cart/cartSelectors';
 import { CartStoreService } from '@core/cart/cartstore.service';
 import { ProductInt } from '@core/product-services/product';
 import { Observable } from 'rxjs';
+import { AddToCartDialogComponent } from '../add-to-cart-dialog/add-to-cart-dialog.component';
 
 @Component({
   selector: 'app-add-to-cart',
@@ -37,18 +38,16 @@ export class AddToCartComponent implements OnInit {
   addItemToCart() {
     this.cartService
       .addToCart(this.product, this.quantity)
-      .subscribe((cartItem) => 
-      console.log("Item Added To Cart", cartItem));
-      //this.openDialog(cartItem));
+      .subscribe((cartItem) =>this.openDialog(cartItem));      
   }
 
-  // openDialog(cartItem: CartItemInterface) {
-  //   this.matDialog.open(AddToCartDialogComponent, {
-  //     width: "350px",
-  //     height: "250px",
-  //     data: { cartItem },
-  //     disableClose: true,
-  //   });    
-  // }
+  openDialog(cartItem: CartItemInterface) {
+    this.matDialog.open(AddToCartDialogComponent, {
+      width: "350px",
+      height: "250px",
+      data: { cartItem },
+      disableClose: true,
+    });    
+  }
 
 }

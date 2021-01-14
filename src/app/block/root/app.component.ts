@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { merge, Observable } from 'rxjs';
 import { AuthenticationService } from '@core/index';
 import { User } from '@core/index';
 
@@ -9,26 +9,27 @@ import { User } from '@core/index';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnDestroy, OnInit {
+export class AppComponent implements OnInit {
   title = 'product-mart';
-  user: Observable<User>;
-  userSubscription: Subscription;
-
+  user$: Observable<User>;
+  
   constructor(
     private authService: AuthenticationService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.user = this.authService.user;
-    // For Refresh Page
-    this.userSubscription = this.authService
-      .findMe()
-      .subscribe((user) => (this.user = user));
-  }
+    this.user$ = merge(this.authService.findMe(), this.authService.user);
+  }  
+    // this.user = this.authService.user;
+    // // For Refresh Page
+    // this.userSubscription = this.authService
+    //   .findMe()
+    //   .subscribe((user) => (this.user = user));
+  
 
   get userFullName() {
-    return this.user;
+    return this.user$;
   }
 
   logout() {
@@ -36,9 +37,9 @@ export class AppComponent implements OnDestroy, OnInit {
     this.router.navigate(['/home']);
   }
 
-  ngOnDestroy(): void {
-    if (this.userSubscription) {
-      this.userSubscription.unsubscribe();
-    }
-  }
+  // ngOnDestroy(): void {
+  //   if (this.userSubscription) {
+  //     this.userSubscription.unsubscribe();
+  //   }
+  // }
 }
