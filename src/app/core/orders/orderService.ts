@@ -10,7 +10,7 @@ import { Order } from "./order";
   providedIn: "root",
 })
 export class OrderService {
-  private apiUrl = "/api/orders/";
+  private apiUrl = "/api/order/";
   constructor(
     private httpClient: HttpClient,
     private authService: AuthenticationService,
