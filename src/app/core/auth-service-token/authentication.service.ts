@@ -28,6 +28,10 @@ export class AuthenticationService {
   get isUserLoggedIn(){
     return this.user$.value !== null;
   }
+
+  get loggedInUser(){
+    return this.user$.value;
+  }
   
   set redirectUrl(url: string){
     this.redirectUrlAfterLogin = url;

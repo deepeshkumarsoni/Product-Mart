@@ -5,10 +5,11 @@ import { CartRoutingModule } from './cart-routing.module';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { SharedModule } from '@shared/shared.module';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
+import { PaypalcheckoutComponent } from './paypalcheckout/paypalcheckout.component';
 
 
 @NgModule({
-  declarations: [ShoppingCartComponent, CartSummaryComponent],
+  declarations: [ShoppingCartComponent, CartSummaryComponent, PaypalcheckoutComponent],
   imports: [
     CommonModule,
     CartRoutingModule,
